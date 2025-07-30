@@ -13,7 +13,7 @@ use App\Http\Controllers\PharmachyController;
 use App\Http\Controllers\LabController;
 
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('home-page');;
 Route::get('/home',[HomeController::class,'redirect'])->name('home')->middleware('auth','verified');
 Route::get('/all-doctors',[HomeController::class,'allDoctors'])->name('alldoctors');
 Route::get('/doctor-details/{id}',[HomeController::class,'doctorDetails'])->name('doctor-details');
@@ -120,4 +120,3 @@ Route::get('/print-order/{id}',[AdminController::class,'printOrder'])->name('pri
 Route::get('/medi-order',[AdminController::class,'MediOrder'])->name('medi-order');
 Route::get('/update-mediorder/{id}',[AdminController::class,'updateMediOrder'])->name('update-mediorder');
 Route::get('/print-Medi-order/{id}',[AdminController::class,'printMediOrder'])->name('print-Medi-order');
-

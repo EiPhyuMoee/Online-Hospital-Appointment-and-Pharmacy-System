@@ -30,7 +30,7 @@
 
 @yield('content')
 
-@include('user.include.footer')
+{{-- @include('user.include.footer') --}}
 
 <script src="{{asset('assets')}}/js/jquery-3.5.1.min.js"></script>
 
