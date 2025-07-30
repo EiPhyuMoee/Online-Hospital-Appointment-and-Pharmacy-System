@@ -83,32 +83,37 @@
         </div> <!-- .bg-light -->
     </div> <!-- .bg-light -->
 
-    <div class="page-section">
-        <div class="container">
-            <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
+            <!-- Doctor Section -->
+        <div class="page-section">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
+                <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+                    @foreach($doctor as $doctors)
+                    <div class="item">
+                        <div class="card-doctor shadow-sm border-0 rounded-4 overflow-hidden">
+                            <div class="header position-relative">
+                                <img src="{{ $doctors->image }}" alt="Doctor Image" class="img-fluid doctor-img">
 
-            <div class="owl-carousel wow fadeInUp justify-content-center" id="doctorSlideshow">
-                @foreach($doctor as $doctors)
-                <div class="item">
-                    <div class="card-doctor">
-                        <div class="header">
-                            <img  src="{{$doctors->image}}" alt="" style="height: 250px !important;">
-                            <div class="meta">
-                                <a href="#"><span class="mai-call"></span></a>
-                                <a href="#"><span class="mai-logo-whatsapp"></span></a>
                             </div>
-                        </div>
-                        <div class="body">
-                            <h5><a href="{{route('doctor-details',['id'=>$doctors->id])}}">{{$doctors->name}}</a></h5>
-                            <span class="text-sm text-grey" style="color: red;">{{$doctors->speciality}}</span>
-                            <div><h3>Consultant Fee: {{$doctors->fee}}/=</h3></div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+                            <div class="body text-center py-3 px-2">
+            <h5 class="mb-1 fw-semibold">
+                <a href="{{ route('doctor-details', ['id' => $doctors->id]) }}" class="text-decoration-none text-dark">
+                    {{ $doctors->name }}
+                </a>
+            </h5>
+           <p class="text-dark fw-bold mb-1">{{ $doctors->speciality }}</p>
+            <div class="consult-fee text-primary fw-medium" style="font-size: 0.95rem;">
+                Consultant Fee: <span class="fw-bold">{{ $doctors->fee }}/=</span>
             </div>
         </div>
+
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
+</div>
+
 
     <div class="page-section bg-light">
         <div class="container">

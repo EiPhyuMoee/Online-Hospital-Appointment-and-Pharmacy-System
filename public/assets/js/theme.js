@@ -4,24 +4,27 @@ $('document').ready(function() {
     nav: true,
     dots: false,
     navText: ["<span class='mai-arrow-back'></span>", "<span class='mai-arrow-forward'></span>"],
-    responsive: {
-      0: {
-        items: 1
-      },
-      576: {
-        items: 2
-      },
-      992: {
-        items: 3
-      }
-    }
+ responsive: {
+  0: {
+    items: 1
+  },
+  576: {
+    items: 2
+  },
+  768: {
+    items: 3
+  },
+  992: {
+    items: 4 // ✅ Desktop screen မှာ 4 ပုံတစ်ခါတည်း ပြမယ်
+  }
+}
   });
 });
 
 $('document').ready(function() {
   $("a[data-role='smoothscroll']").click(function(e) {
     e.preventDefault();
-    
+
     var position = $($(this).attr("href")).offset().top - nav_height;
 
     $("body, html").animate({
