@@ -102,9 +102,9 @@
                 </a>
             </h5>
            <p class="text-dark fw-bold mb-1">{{ $doctors->speciality }}</p>
-            <div class="consult-fee text-primary fw-medium" style="font-size: 0.95rem;">
+            {{-- <div class="consult-fee text-primary fw-medium" style="font-size: 0.95rem;">
                 Consultant Fee: <span class="fw-bold">{{ $doctors->fee }}/=</span>
-            </div>
+            </div> --}}
         </div>
 
                 </div>

@@ -30,19 +30,27 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="col-md-12">
-                                    <div class="form-floating mb-3 mb-md-0">
-                                        <select name="speciality" id="inputSpeciality" class="form-select" style="width: 100%;">
-                                            <option value="">Select Specialization</option>
-                                            @foreach($doctors as $doctor)
-                                                <option value="{{ $doctor->speciality }}">{{ $doctor->speciality }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label for="inputSpeciality">Specialization</label>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="row mb-3">
+    <div class="col-md-12">
+        <div class="form-floating mb-3 mb-md-0">
+            <input class="form-control"
+                   id="inputSpeciality"
+                   name="speciality"
+                   type="text"
+                   list="specialityOptions"
+                   placeholder="Specialization"
+                   value="{{ old('speciality') }}" />
+            <label for="inputSpeciality">Specialization</label>
+            <datalist id="specialityOptions">
+                @foreach($doctors as $doctor)
+                    <option value="{{ $doctor->speciality }}">
+                @endforeach
+            </datalist>
+        </div>
+    </div>
+</div>
+
+
 
 
                             <div class="row mb-3">

@@ -225,13 +225,5 @@
 
             </div>
         </div>
-
-        <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            <x-app-layout>
-
-            </x-app-layout>
-        </div>
-
     </nav>
 </div>
