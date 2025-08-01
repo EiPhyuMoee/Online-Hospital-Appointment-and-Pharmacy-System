@@ -1,4 +1,4 @@
-<a class="navbar-brand ps-3" href="{{route('home')}}"><span style="color: #00D9A5 !important;font-size: 28px">Medi</span> <span style="font-size: 25px;color: red">-Care</span></a>
+<a class="navbar-brand ps-3" href="{{route('home')}}"><span style="color: #00D9A5 !important;font-size: 28px">Safe</span> <span style="font-size: 25px;color: red">-Nest</span></a>
 <!-- Sidebar Toggle-->
 <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 <!-- Navbar Search-->

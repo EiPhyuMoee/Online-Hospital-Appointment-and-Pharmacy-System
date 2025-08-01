@@ -45,7 +45,5 @@
         </div>
 
         <hr>
-
-        <p id="copyright">Copyright &copy; 2023 <a href=https://www.linkedin.com/in/md-abdullah-al-shakil-98882718a/" target="_blank">Final Defence</a>. All right reserved</p>
     </div>
 </footer>
