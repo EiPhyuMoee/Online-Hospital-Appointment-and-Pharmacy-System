@@ -124,9 +124,9 @@
                     <div class="card-blog">
                         <div class="header">
                             <div class="post-category">
-                                <a href="#">Covid19</a>
+                                <a href="#">{{$blogs->slug}}</a>
                             </div>
-                            <a href="blog-details.html" class="post-thumb">
+                            <a href="{{route('blog-details',['id'=>$blogs->id])}}" class="post-thumb">
                                 <img src="{{$blogs->image}}" alt="">
                             </a>
                         </div>
@@ -137,9 +137,9 @@
                                     <div class="avatar-img">
                                         <img src="{{$blogs->image}}" alt="">
                                     </div>
-                                    <span>Roger Adams</span>
+                                    <span>SafeNest- Hospital</span>
                                 </div>
-                                <span class="mai-time"></span> 1 week ago
+                                <span class="mai-time"></span>  <small>{{ \Carbon\Carbon::parse($blogs->date)->diffForHumans() }}</small>
                             </div>
                         </div>
                     </div>

@@ -5,56 +5,40 @@
 
 @section('content')
 
-    <section class="blog-details">
-        <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <h2 style="color: #00D9A5;font-weight: 500;font-size: 30px;" class="text-center mt-3 mb-5">Blog Details</h2>
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <h3 class="text-center mb-4" style="color: blue;font-weight: 500; font-size: 40px">{{$blog->title}}</h3>
-                        <img src="{{asset($blog->image)}}" alt="Blog Image" class="img-fluid mb-5">
-                        <h3 class="text-center mb-4" style="color: #00D9A5;font-weight: 500; font-size: 35px">{{$blog->title}}</h3>
-                        <p class="mb-4" style="color: #0b2e13;line-height: 36px;word-spacing: 2px; font-size: 22px;font-family: Roboto;">{{$blog->description}}</p>
-                    </div>
-                </div>
+<section class="blog-details py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10 text-center">
+                {{-- <h2 class="text-success mb-3" style="font-weight: 500; font-size: 30px;">Blog Details</h2> --}}
+                <h4 class="text-primary mb-4" style="font-weight: 600; font-size: 25px;">{{ $blog->title }}</h4>
+                <img src="{{ asset($blog->image) }}" alt="Blog Image" class="img-fluid rounded shadow mb-4" style="max-height: 500px; object-fit: cover;">
+                <p class="text-dark" style="line-height: 1.8; font-size: 20px; font-family: 'Roboto', sans-serif;">
+                    {{ $blog->description }}
+                </p>
             </div>
         </div>
-    </section>
 
-    <div class="page-section bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h2 style="color: #00D9A5;font-weight: 500;font-size: 30px;" class="text-center mt-1 mb-2">Related Blog</h2>
-
-                    <div class="row">
-
-
-                        @foreach($relatedBlogs as $blogs)
-                            <div class="col-md-4 col-lg-4 py-3 wow zoomIn">
-                                <div class="card-doctor">
-                                    <div class="header">
-                                        <img src="{{asset($blogs->image)}}" alt="" height="300px">
-                                        <div class="meta">
-                                            <a href="#"><span class=""></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="body">
-                                        <h5><a href="{{route('blog-details',['id'=>$blogs->id])}}">{{$blogs->title}}</a></h5>
-                                        <span class="text-sm text-grey">{{$blogs->date}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-
+        <div class="row">
+            @foreach($relatedBlogs as $blogs)
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="{{ asset($blogs->image) }}" class="card-img-top" alt="Related Blog Image" style="height: 220px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-primary mb-2">
+                            <a href="{{ route('blog-details', ['id' => $blogs->id]) }}" class="text-decoration-none text-primary">
+                                {{ \Illuminate\Support\Str::limit($blogs->title, 60) }}
+                            </a>
+                        </h5>
+                        <small class="text-muted mt-auto">
+                            <i class="mai-time mr-1"></i> {{ \Carbon\Carbon::parse($blogs->date)->diffForHumans() }}
+                        </small>
                     </div>
-
                 </div>
             </div>
-        </div> <!-- .container -->
-    </div> <!-- .page-section -->
-
-    <!-- New section for related blogs -->
-
+            @endforeach
+        </div>
+    </div>
+</section>
 
 @endsection
+
