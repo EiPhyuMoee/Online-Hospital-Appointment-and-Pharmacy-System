@@ -4,31 +4,28 @@
 @endsection
 
 @section('content')
-    @if(session()->has('message'))
-        <div class="alert alert-success alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ session()->get('message') }}
+@if(session()->has('message'))
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ session()->get('message') }}
+    </div>
+@endif
+@if(session()->has('error'))
+    <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ session()->get('error') }}
+    </div>
+@endif
+
+{{-- Hero Section --}}
+<div class="page-hero bg-image overlay-dark" style="background-image: url({{asset('assets')}}/img/bg_image_2.jpg);">
+    <div class="hero-section py-5">
+        <div class="container text-center wow zoomIn">
+            <span class="subhead text-white fs-4 d-block mb-2">We Care About Your Health</span>
+            <h1 class="display-4 text-white fw-bold">Our Doctor</h1>
         </div>
-    @endif
-    @if(session()->has('error'))
-        <div class="alert alert-danger alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ session()->get('error') }}
-        </div>
-    @endif
-    <div class="page-banner overlay-dark bg-image" style="background-image: url({{asset('assets')}}/img/bg_image_1.jpg);">
-        <div class="banner-section">
-            <div class="container text-center wow fadeInUp">
-                <nav aria-label="Breadcrumb">
-                    <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Doctors</li>
-                    </ol>
-                </nav>
-                <h1 class="font-weight-normal">Our Doctors</h1>
-            </div> <!-- .container -->
-        </div> <!-- .banner-section -->
-    </div> <!-- .page-banner -->
+    </div>
+</div>
 
     <div class="page-section bg-light">
         <div class="container">
@@ -42,15 +39,10 @@
                             <div class="card-doctor">
                                 <div class="header">
                                     <img src="{{$doctors->image}}" alt="" width="300px">
-                                    <div class="meta">
-                                        <a href="#"><span class="mai-call"></span></a>
-                                        <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                                    </div>
                                 </div>
                                 <div class="body">
                                     <h5><a href="{{route('doctor-details',['id'=>$doctors->id])}}">{{$doctors->name}}</a></h5>
                                     <span class="text-sm text-grey">{{$doctors->speciality}}</span>
-                                    <div><h3>Consultant Fee: {{$doctors->fee}}/=</h3></div>
                                 </div>
                             </div>
                         </div>
@@ -135,22 +127,7 @@
     </div> <!-- .page-section -->
 
 
-    <div class="page-section banner-home bg-image" style="background-image: url({{asset('assets')}}/img/banner-pattern.svg);">
-        <div class="container py-5 py-lg-0">
-            <div class="row align-items-center">
-                <div class="col-lg-4 wow zoomIn">
-                    <div class="img-banner d-none d-lg-block">
-                        <img src="{{asset('assets')}}/img/mobile_app.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-8 wow fadeInRight">
-                    <h1 class="font-weight-normal mb-3">Get easy access of all features using One Health Application</h1>
-                    <a href="#"><img src="{{asset('assets')}}/img/google_play.svg" alt=""></a>
-                    <a href="#" class="ml-2"><img src="{{asset('assets')}}/img/app_store.svg" alt=""></a>
-                </div>
-            </div>
-        </div>
-    </div> <!-- .banner-home -->
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
