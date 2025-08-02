@@ -73,26 +73,38 @@ class AdminController extends Controller
 
         return back();
     }
-    public function showHistory(Request $request)
-    {
-        // Get the currently logged-in user's ID
-        $userId = $request->user()->id;
+    // public function showHistory(Request $request)
+    // {
+    //     // Get the currently logged-in user's ID
+    //     $userId = $request->user()->id;
 
-        // Retrieve the user's doctor_id from the users table
-        $user = User::findOrFail($userId);
-        $doctorId = $user->doctor_id;
+    //     // Retrieve the user's doctor_id from the users table
+    //     $user = User::findOrFail($userId);
+    //     $doctorId = $user->doctor_id;
 
-        // Check if the doctor with the given doctor_id exists
-        $doctor = Doctor::find($doctorId);
+    //     // Check if the doctor with the given doctor_id exists
+    //     $doctor = Doctor::find($doctorId);
 
-        if ($doctor) {
-            // If the doctor exists, retrieve the historical data
-            $data = AppointmentHistory::where('doctor_id', $doctorId)->get();
-            return view('admin.history.show-history',compact('data'));
-        } else {
-            return back();
-        }
-    }
+    //     if ($doctor) {
+    //         // If the doctor exists, retrieve the historical data
+    //         $data = AppointmentHistory::where('doctor_id', $doctorId)->get();
+    //         return view('admin.history.show-history',compact('data'));
+    //     } else {
+    //         return back();
+    //     }
+    // }
+
+public function showHistory(Request $request)
+{
+    // condition မလိုလားရင် ရိုးရိုး get() ခေါ်ပါ
+    $data = AppointmentHistory::all();
+
+    // သို့မဟုတ်၊ filter လုပ်မယ်ဆိုရင် condition ဖြည့်ပါ
+    // $data = AppointmentHistory::where('user_id', $request->user()->id)->get();
+
+    return view('admin.history.show-history', compact('data'));
+}
+
 
     public function cancelAppointDoc($id)
     {
