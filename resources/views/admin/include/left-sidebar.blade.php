@@ -3,225 +3,138 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
 
-
+                <!-- Dashboard -->
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="{{route('home')}}">
+                <a class="nav-link" href="{{ route('home') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
 
+                <!-- Appointment History -->
+                @auth
+                    @if (Auth::user()->usertype == 2 || Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">History</div>
+                        <a class="nav-link" href="{{ route('showhistory') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
+                            Appointment History
+                        </a>
+                    @endif
+                @endauth
 
-{{--                History--}}
-                @if(Route::has('login'))
-                    @auth
-                        @if(Auth::user()->usertype == 2 || Auth::user()->usertype == 1)
-                <div class="sb-sidenav-menu-heading">History</div>
-                <a class="nav-link" href="{{route('showhistory')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Appointment History
-                </a>
-                        @endif
-                    @endauth
-                @endif
+                <!-- Users -->
+                @auth
+                    @if (Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">Users</div>
+                        <a class="nav-link" href="{{ route('users.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                            Add User
+                        </a>
+                        <a class="nav-link" href="{{ route('users.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
+                            Manage Users
+                        </a>
 
+                        <div class="sb-sidenav-menu-heading">Doctors</div>
+                        <a class="nav-link" href="{{ route('doctor.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                            Add Doctor
+                        </a>
+                        <a class="nav-link" href="{{ route('doctor.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-stethoscope"></i></div>
+                            Manage Doctors
+                        </a>
+                    @endif
+                @endauth
 
-{{--                User--}}
-                @if(Route::has('login'))
-                    @auth
-                        @if(Auth::user()->usertype == 1)
-                <div class="sb-sidenav-menu-heading">Users</div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#users" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                    Users
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
+                <!-- Appointments & Queries -->
+                @auth
+                    @if (Auth::user()->usertype == 4 || Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">Appointments</div>
+                        <a class="nav-link" href="{{ route('showappointment') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
+                            Manage Appointments
+                        </a>
 
-                <div class="collapse" id="users" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{route('users.create')}}">Add User</a>
-                        <a class="nav-link" href="{{route('users.index')}}">Manage Users</a>
-                    </nav>
-                </div>
-                {{--                Doctors--}}
+                        <div class="sb-sidenav-menu-heading">Queries</div>
+                        <a class="nav-link" href="{{ route('contact.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
+                            View Queries
+                        </a>
+                    @endif
+                @endauth
 
+                <!-- Food & Orders -->
+                @auth
+                    @if (Auth::user()->usertype == 3 || Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">Food</div>
+                        <a class="nav-link" href="{{ route('food.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-plus-square"></i></div>
+                            Add Food
+                        </a>
+                        <a class="nav-link" href="{{ route('food.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                            Manage Food
+                        </a>
 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#user" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                    Doctors
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
+                        <div class="sb-sidenav-menu-heading">Orders</div>
+                        <a class="nav-link" href="{{ route('manage.order') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-basket"></i></div>
+                            Manage Orders
+                        </a>
+                    @endif
+                @endauth
 
-                <div class="collapse" id="user" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{route('doctor.create')}}">Add Doctor</a>
-                        <a class="nav-link" href="{{route('doctor.index')}}">Manage Doctors</a>
-                    </nav>
-                </div>
-                        @endif
-                    @endauth
-                @endif
+                <!-- Blog -->
+                @auth
+                    @if (Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">Blog</div>
+                        <a class="nav-link" href="{{ route('category.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-folder-plus"></i></div>
+                            Add Category
+                        </a>
+                        <a class="nav-link" href="{{ route('blog.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pen-nib"></i></div>
+                            Add Blog
+                        </a>
+                        <a class="nav-link" href="{{ route('blog.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
+                            Manage Blog
+                        </a>
+                    @endif
+                @endauth
 
+                <!-- Pharmacy & Lab -->
+                @auth
+                    @if (Auth::user()->usertype == 5 || Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">Pharmacy</div>
+                        <a class="nav-link" href="{{ route('pharmachy.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-capsules"></i></div>
+                            Add Medicines
+                        </a>
+                        <a class="nav-link" href="{{ route('pharmachy.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pills"></i></div>
+                            Manage Medicines
+                        </a>
+                        <a class="nav-link" href="{{ route('medi-order') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                            Manage Orders
+                        </a>
 
-
-
-{{--                Appointment--}}
-                @if(Route::has('login'))
-                    @auth
-                        @if(Auth::user()->usertype == 4 || Auth::user()->usertype == 1)
-                <div class="sb-sidenav-menu-heading">Manages</div>
-
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                    Appointments
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-
-
-                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-{{--                        <a class="nav-link" href="">Add Products</a>--}}
-                        <a class="nav-link" href="{{route('showappointment')}}">Manage Appointments</a>
-                    </nav>
-                </div>
-
-
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#complain" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-file-circle-question"></i></div>
-                    User's Query
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="complain" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{route('contact.index')}}">View Query</a>
-                    </nav>
-                </div>
-
-                        @endif
-                    @endauth
-                @endif
-
-
-{{--                Food--}}
-                @if(Route::has('login'))
-                    @auth
-                        @if(Auth::user()->usertype == 3 || Auth::user()->usertype == 1)
-                <div class="sb-sidenav-menu-heading">Food</div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#food" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-utensils"></i></div>
-                    Food
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-
-                <div class="collapse" id="food" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{route('food.create')}}">Add Food</a>
-                        <a class="nav-link" href="{{route('food.index')}}">Manage Food</a>
-                    </nav>
-                </div>
-
-{{--                Order--}}
-
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#order" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fa-regular fa-folder"></i></div>
-                    Order
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-
-                <div class="collapse" id="order" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{route('manage.order')}}">Manage Order</a>
-{{--                        <a class="nav-link" href="{{route('food.index')}}">Manage Food</a>--}}
-                    </nav>
-                </div>
-
-                        @endif
-                    @endauth
-                @endif
-
-
-{{--                Blog--}}
-                @if(Route::has('login'))
-                    @auth
-                        @if(Auth::user()->usertype == 1)
-                <div class="sb-sidenav-menu-heading">Blog</div>
-
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#cat" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Category
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-
-                <div class="collapse" id="cat" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{route('category.create')}}">Add Category</a>
-                    </nav>
-                </div>
-
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#blog" aria-expanded="false" aria-controls="collapseLayouts">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-rss"></i></div>
-                    Blogs
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-
-                <div class="collapse" id="blog" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{route('blog.create')}}">Add Blog</a>
-                        <a class="nav-link" href="{{route('blog.index')}}">Manage Blog</a>
-                    </nav>
-                </div>
-
-                        @endif
-                    @endauth
-                @endif
-
-
-{{--                Pharmachy & Lab Test--}}
-
-                @if(Route::has('login'))
-                    @auth
-                        @if(Auth::user()->usertype == 5 || Auth::user()->usertype == 1)
-                            <div class="sb-sidenav-menu-heading">Pharmachy</div>
-                            <a class="nav-link" href="{{route('pharmachy.create')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Add Medicines
-                            </a>
-
-                            <a class="nav-link" href="{{route('pharmachy.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Manage Medicines
-                            </a>
-
-                            <a class="nav-link" href="{{route('medi-order')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Manage Order
-                            </a>
-
-
-                            <div class="sb-sidenav-menu-heading">Laberatory Tests</div>
-                            <a class="nav-link" href="{{route('lab.create')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Add Test
-                            </a>
-
-                            <a class="nav-link" href="{{route('lab.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Manage Test
-                            </a>
-
-                            <a class="nav-link" href="{{route('lab-order')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Manage Order
-                            </a>
-
-                        @endif
-                    @endauth
-                @endif
-
-
-
-
-
-
+                        <div class="sb-sidenav-menu-heading">Laboratory</div>
+                        <a class="nav-link" href="{{ route('lab.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-vial"></i></div>
+                            Add Test
+                        </a>
+                        <a class="nav-link" href="{{ route('lab.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-microscope"></i></div>
+                            Manage Tests
+                        </a>
+                        <a class="nav-link" href="{{ route('lab-order') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
+                            Manage Orders
+                        </a>
+                    @endif
+                @endauth
 
             </div>
         </div>

@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>Doctors</div>
-                    <div style="font-size: 1.5rem; font-weight: bold;">30</div>
+                    <div style="font-size: 1.5rem; font-weight: bold;">{{ count($doctors) }}</div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -44,7 +44,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>Appointments</div>
-                    <div style="font-size: 1.5rem; font-weight: bold;">100</div>
+                    <div style="font-size: 1.5rem; font-weight: bold;"></div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -58,7 +58,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>Patients</div>
-                    <div style="font-size: 1.5rem; font-weight: bold;">200</div>
+                    <div style="font-size: 1.5rem; font-weight: bold;"></div>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
