@@ -16,11 +16,11 @@
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
-                {{-- <div class="mb-4">
+                <div class="mb-4">
                     <x-input id="email" type="email" name="email" :value="old('email')" required
                         placeholder="Email"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
-                </div> --}}
+                </div>
 
                 <div class="mb-4">
                     <x-input id="phone" type="text" name="phone" :value="old('phone')" required
