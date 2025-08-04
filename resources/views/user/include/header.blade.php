@@ -38,12 +38,37 @@
                     @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('myappointment') }}"
-                                style="background-color: #00D9A5;color: white; border-radius: 10px;">Appointments</a>
+                                style="background-color: #00D9A5; color: white; border-radius: 10px;">
+                                Appointments
+                            </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('foodpage') }}"
-                                style="background-color: #00D9A5;color: white; margin-left: 7px; border-radius: 10px;">Food</a>
+                                style="background-color: #00D9A5; color: white; margin-left: 7px; margin-right: 10px; border-radius: 10px;">
+                                Food
+                            </a>
                         </li>
+
+                        <li class="nav-item dropdown" style="margin-left: 10px;">
+                            <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="background-color: #00D9A5; color: white; border-radius: 10px;">
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">Profile</a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </div>
+                        </li>
+
                     @endauth
 
                     @guest
