@@ -24,30 +24,33 @@ use PDF;
 
 class HomeController extends Controller
 {
-    public function redirect(){
-        if (Auth::id())
-        {
-            if (Auth::user()->usertype=='0')
-            {
-                $doctor = doctor::all();
-                $blog = Blog::all();
-                $food = Food::all();
-                $appointment = Doctor::all();
-                return view('user.home',compact('doctor','blog','food'));
-            }
-            else
-            {
-                return view('admin.home',
-                [
-                    'doctors'=>Doctor::orderBy('created_at', 'desc')->get()
-                ]);
-            }
-        }
-        else
-        {
-            return $this->redirect()->back();
+   public function redirect()
+{
+    if (Auth::check()) {
+        $doctor = Doctor::all();
+        $blog = Blog::all();
+        $food = Food::all();
+
+        if (Auth::user()->usertype == '0') {
+            // Normal user
+            return view('user.home', compact('doctor', 'blog', 'food'));
+        } else {
+            // Admin user
+            $doctorCount = $doctor->count();
+            $blogCount = $blog->count();
+            $foodCount = $food->count();
+
+            return view('admin.home', [
+                'doctors'     => Doctor::orderBy('created_at', 'desc')->get(),
+                'doctorCount' => $doctorCount,
+                'blogCount'   => $blogCount,
+                'foodCount'   => $foodCount,
+            ]);
         }
     }
+
+    return redirect()->back();
+}
 
     public function index()
     {

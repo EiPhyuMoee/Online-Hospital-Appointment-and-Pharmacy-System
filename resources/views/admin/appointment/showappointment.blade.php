@@ -25,7 +25,7 @@
                         <th>Messagee</th>
                         <th>fee</th>
                         <th>Status</th>
-                        <th>Doctor ID</th>
+                        {{-- <th>Doctor ID</th> --}}
 {{--                        <th>User ID</th>--}}
                         <th>Action</th>
                         <th>Complete</th>
@@ -41,7 +41,7 @@
                             <td>{{$appoint->message}}</td>
                             <td>{{$appoint->fee}}</td>
                             <td>{{$appoint->status}}</td>
-                            <td>{{$appoint->doctor_id}}</td>
+                            {{-- <td>{{$appoint->doctor_id}}</td> --}}
 {{--                            <td>{{$appoint->user_id}}</td>--}}
 
 
