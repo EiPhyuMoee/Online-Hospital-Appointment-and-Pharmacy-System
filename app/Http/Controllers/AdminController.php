@@ -198,7 +198,7 @@ public function showHistory(Request $request)
                 'quantity'=>'required',
                 'person_name'=>'required',
                 'phone'=>'required|numeric',
-                'room'=>'required',
+                'email'=>'required',
             ]
         );
         Order::saveOrder($request);

@@ -46,27 +46,29 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="col-md-12">
-                                    <div class="form-floating mb-3 mb-md-0" style="width: 300px;">
-{{--                                        <input class="form-control" id="inputPassword" name="speciality" type="text" placeholder="Speciality" />--}}
-{{--                                        <label for="speciality">Speciality</label>--}}
-                                        <select name="speciality" id="" style="width: 183%;">
-                                            <option value="">--Speciality--</option>
-                                            <option value="Skin">Skin</option>
-                                            <option value="Heart">Heart</option>
-                                            <option value="Eye">Eye</option>
-                                            <option value="Nose">Nose</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row mb-3">
+    <div class="col-md-12">
+        <div class="form-floating mb-3 mb-md-0">
+            <input
+                class="form-control"
+                id="inputSpeciality"
+                name="speciality"
+                type="text"
+                list="specialityOptions"
+                placeholder="Speciality"
+                value="{{ old('speciality') }}"
+            />
+            <label for="inputSpeciality">Speciality</label>
+        </div>
+    </div>
+</div>
+
 
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" name="room" type="number" placeholder="Room No" value="{{old('room')}}" />
-                                        <label for="room">Room No. </label>
+                                        <input class="form-control" name="email" type="text" placeholder="Email" value="{{old('email')}}" />
+                                        <label for="email">Email</label>
                                     </div>
                                 </div>
                             </div>

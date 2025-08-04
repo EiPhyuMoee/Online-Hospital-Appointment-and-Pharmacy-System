@@ -19,9 +19,9 @@
                     <thead>
                     <tr>
                         <th>Doctor Name</th>
-                        <th>Phone</th>
+                        <th>Phone No.</th>
+                        <th>Email</th>
                         <th>Speciality </th>
-                        <th>Room No</th>
                         <th>Fees</th>
                         <th>Image</th>
                         <th>Action</th>
@@ -32,9 +32,9 @@
                         <tr>
                             <td>{{$doctor->name}}</td>
                             <td>{{$doctor->phone}}</td>
+                            <td>{{$doctor->email}}</td>
                             <td>{{$doctor->speciality}}</td>
-                            <td>{{$doctor->room}}</td>
-                            <td>{{$doctor->fee}}/=</td>
+                            <td>{{$doctor->fee}}</td>
                             <td>
                                 <img src="{{asset($doctor->image)}}" alt="" class="img-fluid" width="50px" height="50px">
                             </td>

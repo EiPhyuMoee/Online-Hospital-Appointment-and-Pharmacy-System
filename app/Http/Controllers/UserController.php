@@ -9,9 +9,7 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return view('admin.user.manage-user',[
@@ -19,17 +17,13 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         return view('admin.user.add-user');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
 //        dd($request);
@@ -40,30 +34,24 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
-        // Get the user by ID
         $user = User::find($id);
 
-        // Define the user roles with their corresponding names
         $userRoles = [
-            0=>'Regular User',
+            0=> 'User',
             1 => 'Super Admin',
             2 => 'Doctor',
-            3 => 'Food',
-            4 => 'Receptionist',
-            5 => 'Lab and Medicines',
+            // 3 => 'Food',
+            // 4 => 'Receptionist',
+            // 5 => 'Lab and Medicines',
         ];
 
         return view('admin.user.edit-user', [
@@ -72,9 +60,6 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $user = User::find($id);
@@ -97,11 +82,12 @@ class UserController extends Controller
         return redirect('users');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+
+  public function destroy($id)
+{
+    $user = User::findOrFail($id);
+    $user->delete();
+
+    return redirect()->route('users.index')->with('message', 'User deleted successfully');
+}
 }

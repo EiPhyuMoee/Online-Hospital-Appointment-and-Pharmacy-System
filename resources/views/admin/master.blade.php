@@ -25,10 +25,10 @@
 <div id="layoutSidenav">
     @include('admin.include.left-sidebar')
     <div id="layoutSidenav_content">
-        <main>
+        <main style="padding-left: 10px; padding-top: 10px;">
             @yield('content')
         </main>
-       
+
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

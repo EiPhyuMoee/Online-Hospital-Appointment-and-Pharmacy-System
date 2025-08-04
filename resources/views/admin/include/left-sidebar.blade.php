@@ -55,16 +55,16 @@
                             Manage Appointments
                         </a>
 
-                        <div class="sb-sidenav-menu-heading">Queries</div>
+                        {{-- <div class="sb-sidenav-menu-heading">Queries</div>
                         <a class="nav-link" href="{{ route('contact.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
                             View Queries
-                        </a>
+                        </a> --}}
                     @endif
                 @endauth
 
                 <!-- Food & Orders -->
-                @auth
+                {{-- @auth
                     @if (Auth::user()->usertype == 3 || Auth::user()->usertype == 1)
                         <div class="sb-sidenav-menu-heading">Food</div>
                         <a class="nav-link" href="{{ route('food.create') }}">
@@ -82,7 +82,7 @@
                             Manage Orders
                         </a>
                     @endif
-                @endauth
+                @endauth --}}
 
                 <!-- Blog -->
                 @auth
@@ -104,7 +104,7 @@
                 @endauth
 
                 <!-- Pharmacy & Lab -->
-                @auth
+                {{-- @auth
                     @if (Auth::user()->usertype == 5 || Auth::user()->usertype == 1)
                         <div class="sb-sidenav-menu-heading">Pharmacy</div>
                         <a class="nav-link" href="{{ route('pharmachy.create') }}">
@@ -134,7 +134,7 @@
                             Manage Orders
                         </a>
                     @endif
-                @endauth
+                @endauth --}}
 
             </div>
         </div>

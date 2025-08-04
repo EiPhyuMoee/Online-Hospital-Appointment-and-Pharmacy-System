@@ -15,7 +15,7 @@ class Doctor extends Model
         self::$doctor->name = $request->name;
         self::$doctor->phone = $request->phone;
         self::$doctor->speciality = $request->speciality;
-        self::$doctor->room = $request->room;
+        self::$doctor->email = $request->email;
         self::$doctor->time = $request->time;
         self::$doctor->day = $request->day;
         self::$doctor->fee = $request->fee;
@@ -42,7 +42,7 @@ class Doctor extends Model
         self::$doctor->name = $request->name;
         self::$doctor->phone = $request->phone;
         self::$doctor->speciality = $request->speciality;
-        self::$doctor->room = $request->room;
+        self::$doctor->email = $request->email;
         self::$doctor->fee = $request->fee;
 
         if ($request->file('image')){

@@ -18,7 +18,7 @@
                         <tr>
                             <th>Customer Name</th>
                             <th>Email</th>
-                            <th>Phone</th>
+                            <th>Phone No.</th>
                             <th>Doctor Name </th>
                             <th>Messagee</th>
                             <th>fee</th>

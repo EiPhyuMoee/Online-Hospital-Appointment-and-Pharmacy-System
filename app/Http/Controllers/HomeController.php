@@ -24,33 +24,42 @@ use PDF;
 
 class HomeController extends Controller
 {
-   public function redirect()
-{
-    if (Auth::check()) {
-        $doctor = Doctor::all();
-        $blog = Blog::all();
-        $food = Food::all();
+    public function redirect()
+    {
+        if (Auth::check()) {
+            $doctor = Doctor::all();
+            $blog = Blog::all();
+            $food = Food::all();
+            $user = User::all();
 
-        if (Auth::user()->usertype == '0') {
-            // Normal user
-            return view('user.home', compact('doctor', 'blog', 'food'));
-        } else {
-            // Admin user
-            $doctorCount = $doctor->count();
-            $blogCount = $blog->count();
-            $foodCount = $food->count();
+            if (Auth::user()->usertype == '0') {
+                // Normal user - show all appointments
+                $appointment = AppointmentHistory::all();
+                return view('user.home', compact('doctor', 'blog', 'food', 'appointment','user'));
+            } else {
+                // Admin user - only completed appointments
+                $completeAppointments = AppointmentHistory::where('status', 'Completed')->get();
 
-            return view('admin.home', [
-                'doctors'     => Doctor::orderBy('created_at', 'desc')->get(),
-                'doctorCount' => $doctorCount,
-                'blogCount'   => $blogCount,
-                'foodCount'   => $foodCount,
-            ]);
+                $doctorCount = $doctor->count();
+                $blogCount = $blog->count();
+                $foodCount = $food->count();
+                $appointmentCount = $completeAppointments->count();
+                $user = $user->count();
+
+                return view('admin.home', [
+                    'doctors'           => Doctor::orderBy('created_at', 'desc')->get(),
+                    'doctorCount'       => $doctorCount,
+                    'blogCount'         => $blogCount,
+                    'foodCount'         => $foodCount,
+                    'appointment'       => $appointmentCount,
+                    'completeAppointments' => $completeAppointments,
+                    'user'                 => $user,
+                ]);
+            }
         }
-    }
 
-    return redirect()->back();
-}
+        return redirect()->back();
+    }
 
     public function index()
     {
@@ -80,9 +89,9 @@ class HomeController extends Controller
             'doctor_id' => 'required|exists:doctors,id',
         ]);
 
-        $data = new Appointment(); // Create a new Appointment instance
+        $data = new Appointment();
 
-        // Populate the appointment data
+
         $data->name = $request->input('name');
         $data->email = $request->input('email');
         $data->date = $request->input('date');
@@ -93,17 +102,16 @@ class HomeController extends Controller
         $data->message = $request->input('message');
         $data->status = 'In Progress';
 
-        // Find the selected doctor's data from the Doctor table
+
         $selectedDoctor = Doctor::find($request->input('doctor'));
 
         if ($selectedDoctor) {
-            $data->doctor = $selectedDoctor->name; // Assuming 'name' is the doctor's name attribute
-            $data->fee = $selectedDoctor->fee; // Assuming 'consultant_fee' is the doctor's fee attribute
-            $data->id = $selectedDoctor->user_id; // Assuming 'consultant_fee' is the doctor's fee attribute
+            $data->doctor = $selectedDoctor->name;
+            $data->fee = $selectedDoctor->fee;
+            $data->id = $selectedDoctor->user_id;
         }
 
         if (Auth::check()) {
-            // If the user is logged in, associate the user ID
             $data->user_id = Auth::user()->id;
 
             if ($data->save()) {
@@ -122,7 +130,7 @@ class HomeController extends Controller
         {
             $userid = Auth::user()->id;
             $appoint = Appointment::where('user_id', $userid)
-                ->orderByDesc('id') // Order by ID in descending order
+                ->orderByDesc('id')
                 ->get();
             return view('user.appointment.myappointment',compact('appoint'));
         }
@@ -239,7 +247,7 @@ class HomeController extends Controller
             [
                 'quantity'=>'required|numeric',
                 'person_name'=> 'required',
-                'room'=>'required|numeric',
+                'email'=>'required|numeric',
                 'phone'=>'required|numeric',
             ]
         );
