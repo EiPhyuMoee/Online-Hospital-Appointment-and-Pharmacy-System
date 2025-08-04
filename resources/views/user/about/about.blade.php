@@ -53,7 +53,7 @@
 {{-- Doctor Section --}}
 <section class="page-section bg-light py-5">
     <div class="container">
-        <h2 class="text-center fw-bold mb-5 wow fadeInUp">Meet Our Doctors</h2>
+        <h2 class="text-center fw-bold mb-5 wow fadeInUp">Our Doctors</h2>
         <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
             @foreach($doctor as $doctors)
             <div class="item">

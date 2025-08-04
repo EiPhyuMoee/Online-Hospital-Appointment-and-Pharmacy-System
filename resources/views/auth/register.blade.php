@@ -17,14 +17,12 @@
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="email" type="email" name="email" :value="old('email')" required
-                        placeholder="Email"
+                    <x-input id="email" type="email" name="email" :value="old('email')" required placeholder="Email"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="phone" type="text" name="phone" :value="old('phone')" required
-                        placeholder="Phone"
+                    <x-input id="phone" type="text" name="phone" :value="old('phone')" required placeholder="Phone"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
@@ -35,8 +33,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="password" type="password" name="password" required
-                        placeholder="Password"
+                    <x-input id="password" type="password" name="password" required placeholder="Password"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
@@ -51,15 +48,29 @@
                         <x-checkbox id="terms" name="terms" required />
                         <label for="terms" class="ml-2">
                             {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-white hover:text-purple-300">'.__('Terms of Service').'</a>',
-                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-white hover:text-purple-300">'.__('Privacy Policy').'</a>',
+                                'terms_of_service' =>
+                                    '<a target="_blank" href="' .
+                                    route('terms.show') .
+                                    '" class="underline text-white hover:text-purple-300">' .
+                                    __('Terms of Service') .
+                                    '</a>',
+                                'privacy_policy' =>
+                                    '<a target="_blank" href="' .
+                                    route('policy.show') .
+                                    '" class="underline text-white hover:text-purple-300">' .
+                                    __('Privacy Policy') .
+                                    '</a>',
                             ]) !!}
                         </label>
                     </div>
                 @endif
-<x-button class="w-full justify-center rounded-full bg-transparent border border-white text-white hover:bg-white hover:text-purple-700 focus:outline-none focus:ring-0 active:bg-white active:text-purple-700 transition">
-    {{ __('Register') }}
-</x-button>
+                <x-button
+                    class="w-full flex justify-center items-center rounded-full bg-transparent border border-white text-white
+                    hover:bg-white hover:text-purple-700
+                    focus:outline-none focus:ring-0
+                    active:bg-white active:text-purple-700 transition">
+                    {{ __('Register') }}
+                </x-button>
 
 
                 <p class="mt-6 text-center text-sm">
