@@ -19,7 +19,8 @@
                             <th>Customer Name</th>
                             <th>Email</th>
                             <th>Phone No.</th>
-                            <th>Doctor Name </th>
+                            <th>Appointment Date</th>
+                             <th>Doctor Name </th>
                             <th>Messagee</th>
                             <th>fee</th>
                             <th>Status</th>
@@ -29,11 +30,12 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $appoint)
-                            @if (in_array($appoint->status, ['Approved', 'Canceled', 'InProgress']))
+                            @if (in_array($appoint->status, ['Approved', 'Canceled', 'In Progress']))
                                 <tr>
                                     <td>{{ $appoint->name }}</td>
                                     <td>{{ $appoint->email }}</td>
                                     <td>{{ $appoint->phone }}</td>
+                                     <td>{{$appoint->date }}</td>
                                     <td>{{ $appoint->doctor }}</td>
                                     <td>{{ $appoint->message }}</td>
                                     <td>{{ $appoint->fee }}</td>

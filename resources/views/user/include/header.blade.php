@@ -21,7 +21,7 @@
                     <li class="nav-item {{ request()->routeIs('allblog') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('allblog') }}">Blogs</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Services
@@ -30,6 +30,9 @@
                             <li><a class="dropdown-item" href="{{ route('all-report') }}">Lab Test</a></li>
                             <li><a class="dropdown-item" href="{{ route('all-medicine') }}">Pharmacy</a></li>
                         </ul>
+                    </li> --}}
+                     <li class="nav-item {{ request()->routeIs('all-medicine') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('all-medicine') }}">Pharmacy</a>
                     </li>
                     <li class="nav-item {{ request()->routeIs('contact.create') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('contact.create') }}">Contact</a>
@@ -43,12 +46,12 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('foodpage') }}"
                                 style="background-color: #00D9A5; color: white; margin-left: 7px; margin-right: 10px; border-radius: 10px;">
                                 Food
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item dropdown" style="margin-left: 10px;">
                             <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button"

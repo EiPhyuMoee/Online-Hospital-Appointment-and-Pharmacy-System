@@ -16,7 +16,7 @@ class Pharmachy extends Model
         self::$med->price = $request->price;
         self::$med->quantity = $request->quantity;
         self::$med->description = $request->description;
-        self::$med->vendor = $request->vendor;
+        // self::$med->vendor = $request->vendor;
         self::$med->date = $request->date;
         if ($request->file('image')){
             self::$med->image = self::saveImage($request);
@@ -42,7 +42,7 @@ class Pharmachy extends Model
         self::$med->price = $request->price;
         self::$med->quantity = $request->quantity;
         self::$med->description = $request->description;
-        self::$med->vendor = $request->vendor;
+        // self::$med->vendor = $request->vendor;
         self::$med->date = $request->date;
 
         if ($request->file('image')){

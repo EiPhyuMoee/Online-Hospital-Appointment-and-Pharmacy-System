@@ -90,14 +90,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
                                         <input class="form-control" id="inputPassword" value="{{$medicine->vendor}}" name="vendor" type="text" placeholder="Tagline" required/>
                                         <label for="description">Vendor</label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="mt-4 mb-0">
                                 <input type="submit" class="btn btn-outline-success text-center" value="Update Medicine">

@@ -20,7 +20,7 @@
                         <th style="width: 28.537265% !important;">Message</th>
                         <th>Consultant Fee</th>
                         <th>Status</th>
-                        <th>Cancel Appointment</th>
+                        {{-- <th>Cancel Appointment</th> --}}
                     </tr>
                 </thead>
 
@@ -32,14 +32,14 @@
                             <td style="width: 28.537265% !important;">{{ $appoints->message }}</td>
                             <td>{{ $appoints->fee }}</td>
                             <td>{{ $appoints->status }}</td>
-                            <td>
+                            {{-- <td>
                                 @if ($appoints->status != 'Completed')
                                     <a onclick="return confirm('Are you sure to delete it?')" class="btn btn-danger"
                                         href="{{ route('cancel_appointment', $appoints->id) }}">
                                         Cancel
                                     </a>
                                 @endif
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

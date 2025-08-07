@@ -10,7 +10,7 @@
                 <nav aria-label="Breadcrumb">
                     <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Foods</li>
+                        {{-- <li class="breadcrumb-item active" aria-current="page">Foods</li> --}}
                     </ol>
                 </nav>
                 <h1 class="font-weight-normal">Our Foods</h1>

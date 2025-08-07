@@ -24,7 +24,7 @@
                             <th>Messagee</th>
                             <th>fee</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            {{-- <th>Action</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -38,14 +38,14 @@
                                 <td>{{ $appoint->message }}</td>
                                 <td>{{ $appoint->fee }}</td>
                                 <td>{{ $appoint->status }}</td>
-                                <td class="d-flex">
+                                {{-- <td class="d-flex">
                                     <div class="btn-group">
                                         <a href="{{ route('pescrib', $appoint->id) }}"
                                             class="btn btn-primary">Prescription</a>
                                         <a href="{{ route('cancelAppointDoc', $appoint->id) }}" class="btn btn-accent"
                                             style="margin-left: 3px; background-color: #b1dfbb;">Cancel</a>
                                     </div>
-                                </td>
+                                </td> --}}
 
                             </tr>
                         @endforeach

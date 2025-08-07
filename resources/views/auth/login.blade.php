@@ -42,11 +42,11 @@
                         <span class="ml-2">Remember me</span>
                     </label>
 
-                    @if (Route::has('password.request'))
+                    {{-- @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" class="underline hover:text-purple-300">
                             Forgot password?
                         </a>
-                    @endif
+                    @endif --}}
                 </div>
 
                 <x-button
