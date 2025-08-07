@@ -77,52 +77,49 @@ class HomeController extends Controller
         }
     }
 
-    public function appointment(Request $request)
-    {
+  public function appointment(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'date' => 'required|date|after_or_equal:today',
+        'phone' => 'required',
+        'doctor_id' => 'required|exists:doctors,id',
+    ]);
 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'date' => 'required|date|after_or_equal:today',
-            'phone' => 'required',
-            'doctor' => 'required',
-            'doctor_id' => 'required|exists:doctors,id',
-        ]);
+    $existingCount = Appointment::where('doctor_id', $request->doctor_id)
+        ->where('date', $request->date)
+        ->count();
 
-        $data = new Appointment();
-
-
-        $data->name = $request->input('name');
-        $data->email = $request->input('email');
-        $data->date = $request->input('date');
-        $data->phone = $request->input('phone');
-        $data->doctor = $request->input('doctor');
-        $data->doctor_id = $request->input('doctor_id');
-        $data->fee = $request->input('fee');
-        $data->message = $request->input('message');
-        $data->status = 'In Progress';
-
-
-        $selectedDoctor = Doctor::find($request->input('doctor'));
-
-        if ($selectedDoctor) {
-            $data->doctor = $selectedDoctor->name;
-            $data->fee = $selectedDoctor->fee;
-            $data->id = $selectedDoctor->user_id;
-        }
-
-        if (Auth::check()) {
-            $data->user_id = Auth::user()->id;
-
-            if ($data->save()) {
-                return back()->with('message', 'Appointment booked successfully. We will contact you soon.');
-            } else {
-                return back()->with('error', 'Failed to book the appointment. Please try again.');
-            }
-        } else {
-            return redirect()->route('login')->with('message', 'You need to log in to make an appointment.');
-        }
+    if ($existingCount >= 3) {
+        return back()->withErrors(['doctor_id' => 'This doctor is already fully booked on the selected date.'])->withInput();
     }
+
+    $selectedDoctor = Doctor::find($request->doctor_id);
+
+    $data = new Appointment();
+    $data->name = $request->name;
+    $data->email = $request->email;
+    $data->date = $request->date;
+    $data->phone = $request->phone;
+    $data->message = $request->message;
+    $data->doctor_id = $selectedDoctor->id;
+    $data->doctor = $selectedDoctor->name;
+    $data->fee = $selectedDoctor->fee;
+    $data->status = 'In Progress';
+
+    if (Auth::check()) {
+        $data->user_id = Auth::user()->id;
+
+        if ($data->save()) {
+            return back()->with('message', 'Appointment booked successfully. We will contact you soon.');
+        } else {
+            return back()->with('error', 'Failed to book the appointment. Please try again.');
+        }
+    } else {
+        return redirect()->route('login')->with('message', 'You need to log in to make an appointment.');
+    }
+}
 
     public function myappointment()
     {

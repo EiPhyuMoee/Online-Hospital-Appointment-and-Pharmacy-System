@@ -14,7 +14,8 @@
     <section class="doctor-details"
         style="background: url('{{ asset('assets/img/doctor-bg.jpg') }}') no-repeat center center; background-size: cover; color: #212529;">
         <div class="container  bg-opacity-75 p-4 rounded shadow">
-            <h2 class="text-center mb-3" style="font-size: 25px; font-weight: 600; color: #7b8985;">Doctor Details (ဆရာဝန် အချက်အလက်များ)</h2>
+            <h2 class="text-center mb-3" style="font-size: 25px; font-weight: 600; color: #7b8985;">Doctor Details (ဆရာဝန်
+                အချက်အလက်များ)</h2>
 
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-3 mb-md-0">
@@ -47,7 +48,8 @@
                     <strong>မြန်မာဘာသာ:</strong><br>
                     ဆရာဝန် {{ $doctor->name }} သည် <strong>{{ $doctor->speciality }}</strong>
                     အထူးပြုကျွမ်းကျင်သူတစ်ဦးဖြစ်ပြီး
-                    လူနာများအတွက် ပြုစုကုသမှုများကို ကြင်နာစွာဖြင့် ဆောင်ရွက်ပေးလျက်ရှိပါသည်။ <strong>{{ $doctor->name }} </strong>အတွေ့အကြုံအများကြီးရှိသဖြင့်
+                    လူနာများအတွက် ပြုစုကုသမှုများကို ကြင်နာစွာဖြင့် ဆောင်ရွက်ပေးလျက်ရှိပါသည်။ <strong>{{ $doctor->name }}
+                    </strong>အတွေ့အကြုံအများကြီးရှိသဖြင့်
                     လူနာတိုင်းအတွက် အကောင်းဆုံးသော ပြုစုမှုနှင့် ကုသမှုများ ပေးနိုင်သူတစ်ဦးဖြစ်ပါသည်။
                 </p>
             </div>
@@ -101,6 +103,11 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <span class="text-danger">
+                                @error('doctor_id')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                             <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
                                 <input type="text" name="fee" id="feeInput" class="form-control" placeholder="Fee.."
                                     value="{{ old('fee') }}" readonly>
