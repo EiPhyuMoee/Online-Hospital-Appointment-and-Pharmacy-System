@@ -104,9 +104,9 @@
                             </div>
 
 
-                            <div class="col-md-12 text-center">
+                            {{-- <div class="col-md-12 text-center">
                                 <img src="{{ asset($doctor->image) }}" alt=""height="150px" width="150px">
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-12">
                                 <input type="file" class="form-control" name="image">

@@ -55,11 +55,11 @@
                             Manage Appointments
                         </a>
 
-                        {{-- <div class="sb-sidenav-menu-heading">Queries</div>
+                        <div class="sb-sidenav-menu-heading">Contact</div>
                         <a class="nav-link" href="{{ route('contact.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
-                            View Queries
-                        </a> --}}
+                            Manage Contact
+                        </a>
                     @endif
                 @endauth
 

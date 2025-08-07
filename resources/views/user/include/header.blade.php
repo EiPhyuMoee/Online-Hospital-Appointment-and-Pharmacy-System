@@ -61,7 +61,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="{{ route('profile.show') }}">Profile</a>
 
                                 <div class="dropdown-divider"></div>
 
