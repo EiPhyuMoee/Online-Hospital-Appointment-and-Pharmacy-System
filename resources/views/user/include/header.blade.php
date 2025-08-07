@@ -31,9 +31,9 @@
                             <li><a class="dropdown-item" href="{{ route('all-medicine') }}">Pharmacy</a></li>
                         </ul>
                     </li> --}}
-                     <li class="nav-item {{ request()->routeIs('all-medicine') ? 'active' : '' }}">
+                     {{-- <li class="nav-item {{ request()->routeIs('all-medicine') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('all-medicine') }}">Pharmacy</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item {{ request()->routeIs('contact.create') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('contact.create') }}">Contact</a>
                     </li>
