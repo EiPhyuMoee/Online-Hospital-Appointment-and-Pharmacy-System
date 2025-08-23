@@ -34,37 +34,41 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 py-2 wow fadeInLeft">
                         <label for="fullName">Name</label>
-                        <input type="text" name="name" id="fullName" value="{{old('name')}}" class="form-control" placeholder="Full name..">
+                        <input type="text" name="name" id="fullName" value="{{old('name')}}" maxlength="50"
+                            class="form-control" placeholder="Full name..">
                         <span class="text-danger">
                             @error('name')
-                            {{$message}}
+                                {{$message}}
                             @enderror
                         </span>
                     </div>
                     <div class="col-sm-6 py-2 wow fadeInRight">
                         <label for="emailAddress">Email</label>
-                        <input type="text" value="{{old('email')}}" name="email" id="emailAddress" class="form-control" placeholder="Email address..">
+                        <input type="text" value="{{old('email')}}" maxlength="50" name="email" id="emailAddress"
+                            class="form-control" placeholder="Email address..">
                         <span class="text-danger">
                             @error('email')
-                            {{$message}}
+                                {{$message}}
                             @enderror
                         </span>
                     </div>
                     <div class="col-12 py-2 wow fadeInUp">
                         <label for="subject">Subject</label>
-                        <input type="text" value="{{old('subject')}}" name="subject" id="subject" class="form-control" placeholder="Enter subject..">
+                        <input type="text" value="{{old('subject')}}" maxlength="50" name="subject" id="subject"
+                            class="form-control" placeholder="Enter subject..">
                         <span class="text-danger">
                             @error('subject')
-                            {{$message}}
+                                {{$message}}
                             @enderror
                         </span>
                     </div>
                     <div class="col-12 py-2 wow fadeInUp">
                         <label for="message">Message</label>
-                        <textarea id="message" value="{{old('message')}}" name="message" class="form-control" rows="8" placeholder="Enter Message.."></textarea>
+                        <textarea id="message" value="{{old('message')}}" maxlength="50" name="message" class="form-control" rows="8"
+                            placeholder="Enter Message.."></textarea>
                         <span class="text-danger">
                             @error('message')
-                            {{$message}}
+                                {{$message}}
                             @enderror
                         </span>
                     </div>
@@ -73,5 +77,4 @@
             </form>
         </div>
     </div>
-
 @endsection
