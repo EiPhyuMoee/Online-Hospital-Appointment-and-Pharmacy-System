@@ -42,7 +42,7 @@ class HomeController extends Controller
 
                 $doctorCount = $doctor->count();
                 $blogCount = $blog->count();
-                $foodCount = $food->count();
+                // $foodCount = $food->count();
                 $appointmentCount = $completeAppointments->count();
                 $user = $user->count();
 
@@ -50,7 +50,7 @@ class HomeController extends Controller
                     'doctors'           => Doctor::orderBy('created_at', 'desc')->get(),
                     'doctorCount'       => $doctorCount,
                     'blogCount'         => $blogCount,
-                    'foodCount'         => $foodCount,
+                    // 'foodCount'         => $foodCount,
                     'appointment'       => $appointmentCount,
                     'completeAppointments' => $completeAppointments,
                     'user'                 => $user,

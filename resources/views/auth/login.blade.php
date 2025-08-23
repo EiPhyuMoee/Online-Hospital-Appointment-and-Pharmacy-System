@@ -21,6 +21,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
+                    @error('email')
+                        <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-4 relative">
@@ -34,6 +37,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7 11V7a5 5 0 0110 0v4" />
                         </svg>
                     </div>
+                    @error('password')
+                        <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="flex items-center justify-between mb-6 text-sm">
