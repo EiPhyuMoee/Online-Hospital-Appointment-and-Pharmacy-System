@@ -72,8 +72,8 @@ class HomeController extends Controller
             $doctor = doctor::all();
             $blog = Blog::all();
             $cat = Category::all();
-            $food = Food::all();
-            return view('user.home',compact('doctor','blog','cat','food'));
+            // $food = Food::all();
+            return view('user.home',compact('doctor','blog','cat'));
         }
     }
 

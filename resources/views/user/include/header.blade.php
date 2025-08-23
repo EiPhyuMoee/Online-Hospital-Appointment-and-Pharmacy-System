@@ -1,7 +1,10 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}"><span class="text-primary">SafeNest</span>- Hospital</a>
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="../assets/img/hp-logo.png" alt="" style="width: 12%; height: 10%; object-fit: cover;">
+                <span class="text-primary">SafeNest</span>- Hospital
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                 aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
