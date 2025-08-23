@@ -11,34 +11,36 @@
                 @csrf
 
                 <div class="mb-4">
-                    <x-input id="name" type="text" name="name" :value="old('name')" required autofocus
-                        placeholder="Name"
+                    <x-input id="name" type="text" name="name" :value="old('name')" maxlength="50" required autofocus
+                    placeholder="Name"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="email" type="email" name="email" :value="old('email')" required placeholder="Email"
+                    <x-input id="email" type="email" name="email" :value="old('email')" maxlength="50" required placeholder="Email"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="phone" type="text" name="phone" :value="old('phone')" required placeholder="Phone"
+                    <x-input id="phone" type="tel" name="phone" :value="old('phone')" minlength="9" maxlength="11" pattern="[0-9]{9,11}" inputmode="numeric" required placeholder="Phone"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="address" type="text" name="address" :value="old('address')" required
+                    <x-input id="address" type="text" name="address" :value="old('address')" maxlength="50" required
                         placeholder="Address"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="password" type="password" name="password" required placeholder="Password"
+                    <x-input id="password" type="password" name="password" minlength="8" maxlength="50" required
+                        placeholder="Password"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>
 
                 <div class="mb-4">
-                    <x-input id="password_confirmation" type="password" name="password_confirmation" required
+                    <x-input id="password_confirmation" type="password" name="password_confirmation" minlength="8"
+                        maxlength="50" required
                         placeholder="Confirm Password"
                         class="w-full rounded-full pl-4 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
                 </div>

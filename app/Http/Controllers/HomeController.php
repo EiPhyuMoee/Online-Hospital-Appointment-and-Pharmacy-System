@@ -29,13 +29,13 @@ class HomeController extends Controller
         if (Auth::check()) {
             $doctor = Doctor::all();
             $blog = Blog::all();
-            $food = Food::all();
+            // $food = Food::all();
             $user = User::all();
 
             if (Auth::user()->usertype == '0') {
                 // Normal user - show all appointments
                 $appointment = AppointmentHistory::all();
-                return view('user.home', compact('doctor', 'blog', 'food', 'appointment','user'));
+                return view('user.home', compact('doctor', 'blog', 'appointment','user'));
             } else {
                 // Admin user - only completed appointments
                 $completeAppointments = AppointmentHistory::where('status', 'Completed')->get();
