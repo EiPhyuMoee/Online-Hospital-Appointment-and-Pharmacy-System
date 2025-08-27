@@ -31,20 +31,20 @@
 
                             <div class="col-12">
                                 <label class="form-label">Title</label>
-                                <input type="text" name="title" class="form-control">
+                                <input type="text" name="title" class="form-control" maxlength="50">
                             </div>
-{{--                            <div class="col-12">--}}
-{{--                                <label class="form-label">Slug</label>--}}
-{{--                                <input type="text" name="slug" class="form-control">--}}
-{{--                            </div>--}}
+                           <div class="col-12">
+                               <label class="form-label">Slug</label>
+                               <input type="text" name="slug" class="form-control" maxlength="50">
+                           </div>
                             <div class="col-12">
                                 <label class="form-label">Image</label>
                                 <input type="file" name="image" class="form-control">
-                            </div>
+                            </div><br>
 
                             <div class="col-12">
                                 <label class="form-label">Description</label>
-                                <textarea name="description" id="" class="form-control"></textarea>
+                                <textarea name="description" id="" class="form-control" maxlength="50"></textarea>
                             </div>
                             <div class="col-12">
                                 <label class="form-label">Blog Type</label>

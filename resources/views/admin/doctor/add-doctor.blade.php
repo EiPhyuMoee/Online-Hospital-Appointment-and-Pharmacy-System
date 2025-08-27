@@ -21,7 +21,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" name="name" type="text" placeholder="Enter Doctor Name" value="{{old('name')}}" />
+                                        <input class="form-control" name="name" type="text" maxlength="5" placeholder="Enter Doctor Name" value="{{old('name')}}" />
                                         <label for="doctorname">Doctor Name</label>
                                         <span class="text-danger">
                                          @error('name')
@@ -35,7 +35,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" name="phone" type="text" placeholder="Phone No"value="{{old('phone')}}" />
+                                        <input class="form-control" id="inputPassword" name="phone" type="text"  minlength="9" maxlength="11" pattern="[0-9]{9,11}" inputmode="numeric" placeholder="Phone No"value="{{old('phone')}}" />
                                         <label for="phone">Phone No. </label>
                                         <span class="text-danger">
                                          @error('phone')
@@ -47,21 +47,22 @@
                             </div>
 
                         <div class="row mb-3">
-    <div class="col-md-12">
-        <div class="form-floating mb-3 mb-md-0">
-            <input
-                class="form-control"
-                id="inputSpeciality"
-                name="speciality"
-                type="text"
-                list="specialityOptions"
-                placeholder="Speciality"
-                value="{{ old('speciality') }}"
-            />
-            <label for="inputSpeciality">Speciality</label>
-        </div>
-    </div>
-</div>
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input
+                                    class="form-control"
+                                    id="inputSpeciality"
+                                    name="speciality"
+                                    type="text"
+                                    list="specialityOptions"
+                                    maxlength="5"
+                                    placeholder="Speciality"
+                                    value="{{ old('speciality') }}"
+                                />
+                                <label for="inputSpeciality">Speciality</label>
+                            </div>
+                        </div>
+                    </div>
 
 
                             <div class="row mb-3">
@@ -76,7 +77,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" name="time" type="text" placeholder="Time" value="{{old('time')}}" />
+                                        <input class="form-control" id="inputPassword" name="time" type="text" maxlength="5" placeholder="Time" value="{{old('time')}}" />
                                         <label for="time">Schedule Time</label>
                                         <span class="text-danger">
                                          @error('time')
@@ -90,7 +91,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" name="day" type="text" placeholder="Days" value="{{old('day')}}" />
+                                        <input class="form-control" id="inputPassword" name="day" type="text" maxlength="5" placeholder="Days" value="{{old('day')}}" />
                                         <label for="scheduledays">Schedule Days</label>
                                         <span class="text-danger">
                                          @error('day')
@@ -105,7 +106,7 @@
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
                                         <!-- Use the 'description' value from the old input if validation fails -->
-                                        <textarea class="form-control" id="inputDescription" name="description" placeholder="Doctor Description" style="height: 200px;">{{ old('description') }}</textarea>
+                                        <textarea class="form-control" id="inputDescription" name="description" maxlength="5" placeholder="Doctor Description" style="height: 200px;">{{ old('description') }}</textarea>
                                         <label for="inputDescription">Doctor's Description</label>
                                     </div>
                                 </div>
@@ -115,7 +116,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" value="{{old('fee')}}" name="fee" type="number" placeholder="Doctor Fee" />
+                                        <input class="form-control" id="inputPassword" value="{{old('fee')}}" name="fee" type="number" maxlength="5" placeholder="Doctor Fee" />
                                         <label for="fee">Consultant Fee</label>
                                         <span class="text-danger">
                                          @error('fee')
