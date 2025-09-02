@@ -21,7 +21,7 @@
                             @method('PUT')
                             <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control" name="name" type="text" placeholder="Enter Food Name" value="{{$medicine->name}}"/>
-                                <label for="food">Food Name</label>
+                                <label for="food">Medicine Name</label>
                                 <span class="text-danger">
                                          @error('name')
                                     {{$message}}
@@ -31,7 +31,7 @@
 
                             <div class="form-floating my-3 mb-md-0">
                                 <input class="form-control" name="code" type="text" placeholder="Enter Food Name" value="{{$medicine->code}}"/>
-                                <label for="food">Food Name</label>
+                                <label for="food">Medicine Code</label>
                                 <span class="text-danger">
                                          @error('code')
                                     {{$message}}

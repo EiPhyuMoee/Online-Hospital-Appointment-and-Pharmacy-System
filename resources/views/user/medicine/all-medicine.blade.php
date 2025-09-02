@@ -17,7 +17,6 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    {{-- <h2 style="color: #818886;font-weight: 500;font-size: 30px;" class="text-center mt-1 mb-2">Available Medicines</h2> --}}
                     <div class="row">
                         @foreach ($medicine as $med)
                             <div class="col-md-4 col-lg-4 py-3 wow zoomIn">
@@ -37,7 +36,7 @@
                                         <form action="{{ route('add-medicice', $med->id) }}" method="POST"
                                             class="d-inline-block">
                                             @csrf
-                                            <input type="submit" class="btn btn-gradient rounded-pill px-5 py-2 fw-bold"
+                                            <input type="submit" class="btn btn-outline-primary px-5 py-2 fw-bold"
                                                 value="Add to Cart">
                                         </form>
                                     </div>

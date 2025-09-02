@@ -105,7 +105,7 @@
 
                 <!-- Pharmacy & Lab -->
                 @auth
-                    {{-- @if (Auth::user()->usertype == 5 || Auth::user()->usertype == 1)
+                    @if (Auth::user()->usertype == 5 || Auth::user()->usertype == 1)
                         <div class="sb-sidenav-menu-heading">Pharmacy</div>
                         <a class="nav-link" href="{{ route('pharmachy.create') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-capsules"></i></div>
@@ -118,7 +118,7 @@
                         <a class="nav-link" href="{{ route('medi-order') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
                             Manage Orders
-                        </a> --}}
+                        </a>
 
                         {{-- <div class="sb-sidenav-menu-heading">Laboratory</div>
                         <a class="nav-link" href="{{ route('lab.create') }}">
@@ -133,7 +133,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
                             Manage Orders
                         </a> --}}
-                    {{-- @endif --}}
+                    @endif
                 @endauth
 
             </div>
