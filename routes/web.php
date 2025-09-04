@@ -118,5 +118,7 @@ Route::get('/print-order/{id}',[AdminController::class,'printOrder'])->name('pri
 
 //Medi Order
 Route::get('/medi-order',[AdminController::class,'MediOrder'])->name('medi-order');
-Route::get('/update-mediorder/{id}',[AdminController::class,'updateMediOrder'])->name('update-mediorder');
+Route::get('/update-mediorder/{id}', [AdminController::class, 'updateMediOrder'])->name('update-mediorder');
+Route::get('/cancel-mediOrder/{id}', [AdminController::class, 'cancelMediOrder'])->name('cancel-mediorder');
+Route::post('/delete-mediOrder/{id}', [AdminController::class, 'deleteMediOrder'])->name('delete-mediorder');
 Route::get('/print-Medi-order/{id}',[AdminController::class,'printMediOrder'])->name('print-Medi-order');

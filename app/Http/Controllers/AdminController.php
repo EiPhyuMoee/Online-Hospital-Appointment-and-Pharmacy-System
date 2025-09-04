@@ -296,14 +296,37 @@ public function showHistory(Request $request)
             ]);
     }
 
-    public function updateMediOrder($id)
+        public function updateMediOrder($id)
     {
-        $order = MediOrder::find($id);
+        $order = MediCart::find($id);
 
-        $order->delivery_status='Delivered';
         $order->payment_status='Paid';
+        $order->delivery_status='Done';
+
         $order->save();
         return redirect()->back();
+    }
+
+    public function cancelMediOrder($id)
+    {
+        $order = MediCart::find($id);
+
+        $order->payment_status='Canceled';
+        $order->delivery_status='Canceled';
+        $order->save();
+        return redirect()->back();
+    }
+
+    public function deleteMediOrder($id)
+    {
+        $order = MediCart::find($id);
+
+        if ($order) {
+            $order->delete();
+            return back()->with('message', 'Order deleted successfully.');
+        } else {
+            return back()->with('error', 'Failed to delete order.');
+        }
     }
 
     public function printMediOrder($id)
