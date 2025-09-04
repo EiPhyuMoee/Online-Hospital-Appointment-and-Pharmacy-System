@@ -25,7 +25,6 @@
                         <th>description</th>
                         <th>date</th>
                         <th>Image</th>
-                        {{-- <th>vendor</th> --}}
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -41,7 +40,6 @@
                             <td>
                                 <img src="{{asset($food->image)}}" alt="" class="img-fluid" width="50px" height="50px">
                             </td>
-                            {{-- <td>{{$food->vendor}}</td> --}}
                             <td class="d-flex">
                                 <div class="btn-group">
                                     <a href="{{ route('pharmachy.edit', $food->id) }}" class="btn btn-primary">Edit</a>

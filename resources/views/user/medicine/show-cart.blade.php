@@ -37,7 +37,6 @@
                         <th style="width: 10%;">Price</th>
                         <th style="width: 10%;">Medicine Name</th>
                         <th style="width: 10%;">Quantity</th>
-                        <th style="width: 10%;">Vendor</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -48,7 +47,6 @@
                             <td style="width: 10%;">{{$product->price}}</td>
                             <td style="width: 10%;">{{$product->m_name}}</td>
                             <td style="width: 10%;">{{$product->quantity}}</td>
-                            <td style="width: 10%;">{{$product->vendor}}</td>
                             <td class="d-flex">
                                 <div class="btn-group">
                                     {{--                                    <a href="{{route('products.edit',$product->id)}}" class="btn btn-primary">Edit</a>--}}

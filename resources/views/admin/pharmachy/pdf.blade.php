@@ -61,10 +61,6 @@
         <td>{{$data->price}}</td>
     </tr>
     <tr>
-        <th>Vendor</th>
-        <td>{{$data->vendor}}</td>
-    </tr>
-    <tr>
         <th>Payment Status</th>
         <td>{{$data->payment_status}}</td>
     </tr>

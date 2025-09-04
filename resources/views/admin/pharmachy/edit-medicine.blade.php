@@ -20,8 +20,9 @@
                             @csrf
                             @method('PUT')
                             <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control" name="name" type="text" placeholder="Enter Food Name" value="{{$medicine->name}}"/>
-                                <label for="food">Medicine Name</label>
+                                <input class="form-control" name="name" type="text" placeholder="Medicine Name" value="{{$medicine->name}}"maxlength="50"
+                                    pattern="[A-Za-z\s-]+" title="English letters only" />
+                                <label for="name">Medicine Name</label>
                                 <span class="text-danger">
                                          @error('name')
                                     {{$message}}
@@ -30,8 +31,9 @@
                             </div>
 
                             <div class="form-floating my-3 mb-md-0">
-                                <input class="form-control" name="code" type="text" placeholder="Enter Food Name" value="{{$medicine->code}}"/>
-                                <label for="food">Medicine Code</label>
+                                <input class="form-control" name="code" type="text" placeholder="Medicine Code" value="{{$medicine->code}}"maxlength="20" pattern="[A-Za-z\s-]+"
+                                            title="English letters only"/>
+                                <label for="code">Medicine Code</label>
                                 <span class="text-danger">
                                          @error('code')
                                     {{$message}}
@@ -45,7 +47,7 @@
                             <div class="row my-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" name="price" type="number" placeholder="Price" value="{{$medicine->price}}" />
+                                        <input class="form-control" id="inputPassword" name="price" type="number" placeholder="Price" max="9999999999" value="{{$medicine->price}}" />
                                         <label for="price">Price </label>
                                     </div>
                                 </div>
@@ -54,7 +56,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" name="quantity" type="number" placeholder="Quantity" value="{{$medicine->quantity}}" />
+                                        <input class="form-control" id="inputPassword" name="quantity" type="text" placeholder="Quantity" maxlength="50" value="{{$medicine->quantity}}" />
                                         <label for="quantity">Quantity</label>
                                         <span class="text-danger">
                                          @error('quantity')
@@ -68,12 +70,12 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputPassword" value="{{old('description')}}" name="description" type="text" value="{{$medicine->description}}" placeholder="Tagline" />
+                                        <input class="form-control" id="inputDescription" value="{{ old('description') }}"
+                                            name="description" type="text" placeholder="Tagline" maxlength="200" />
                                         <label for="description">Description</label>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-12 text-center">
                                 <img src="{{asset($medicine->image)}}" alt=""height="150px" width="150px">
                             </div>

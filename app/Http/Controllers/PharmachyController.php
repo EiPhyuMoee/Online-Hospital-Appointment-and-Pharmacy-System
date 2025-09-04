@@ -31,20 +31,17 @@ class PharmachyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'name'=>'required',
-                'code'=> 'required',
-                'price'=> 'required',
-                'quantity'=> 'required',
-                'description'=>'required',
-                'image'=>'required',
-                'vendor'=>'required',
-                'date' => 'required|date|after_or_equal:today',
-            ]
-        );
+        $request->validate([
+            'name'        => 'required|string|max:50',
+            'code'        => 'required|string|max:20',
+            'price'       => 'required|numeric|min:0|max:9999999999',
+            'quantity'    => 'required|string',
+            'description' => 'required|string|max:200',
+            'image'       => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'date'        => 'required|date|after_or_equal:today',
+        ]);
         Pharmachy::saveMedi($request);
-        return back()->with('message','Medicine Added Successfully');
+            return back()->with('message','Medicine Added Successfully');
     }
 
     /**
