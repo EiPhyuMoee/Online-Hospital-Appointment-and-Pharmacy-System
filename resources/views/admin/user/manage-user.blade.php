@@ -13,7 +13,7 @@
                 Manage User
 
                 <div class="d-flex justify-content-end" style="margin-top: -25px;"><a href="{{ route('pharmachy.create') }}"
-                        class="btn btn-primary">Add Medicine</a></div>
+                        class="btn btn-primary">Add User</a></div>
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">

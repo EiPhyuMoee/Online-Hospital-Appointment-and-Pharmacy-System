@@ -45,7 +45,7 @@
                             <div class="circle-shape bg-primary text-white">
                                 <span class="mai-shield-checkmark"></span>
                             </div>
-                            <p><span>Health Protection</span> Section</p>
+                            <p><span>Order </span> Medicine</p>
                         </div>
                     </div>
                     <div class="col-md-4 py-3 py-md-0">

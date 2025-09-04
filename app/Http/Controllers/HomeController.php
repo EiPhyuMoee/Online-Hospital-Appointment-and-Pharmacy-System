@@ -516,7 +516,7 @@ class HomeController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
 
-            $dataa = MediOrder::where('user_id', $user->id)->get();
+            $dataa = MediCart::where('user_id', $user->id)->get();
 
             return view('user.medicine.order', compact('dataa'));
         }

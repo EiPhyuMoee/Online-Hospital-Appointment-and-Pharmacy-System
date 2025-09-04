@@ -27,18 +27,17 @@
                                     </div>
                                     <div class="body p-3 text-center">
                                         <h5 class="fw-semibold mb-1">
-                                            <a href="{{ route('blog-details', ['id' => $med->id]) }}"
+                                            <a href="{{ route('medi-details', ['id' => $med->id]) }}"
                                                 class="text-decoration-none text-dark">
                                                 {{ $med->name }}
                                             </a>
                                         </h5>
                                         <p class="text-muted mb-3">Price: <strong>{{ $med->price }} MMK</strong></p>
-                                        <form action="{{ route('add-medicice', $med->id) }}" method="POST"
-                                            class="d-inline-block">
-                                            @csrf
-                                            <input type="submit" class="btn btn-outline-primary px-5 py-2 fw-bold"
-                                                value="Add to Cart">
-                                        </form>
+                                        <a href="{{ route('medi-details', ['id' => $med->id]) }}"
+                                           class="btn btn-outline-primary px-5 py-2 fw-bold d-inline-block">
+                                            Buy Now
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>

@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
-use App\Models\AppointmentHistory;
-use App\Models\Contact;
-use App\Models\Food;
-use App\Models\LabOrder;
-use App\Models\MediOrder;
-use App\Models\order;
-use App\Models\Pres;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Notification;
-//use Illuminate\Support\Facades\Notification;
-use App\Notifications\SendEmailNotification;
-use App\Models\Doctor;
-use App\Models\User;
 use DB;
 use PDF;
+use Notification;
+use App\Models\Food;
+use App\Models\Pres;
+use App\Models\User;
+use App\Models\order;
+use App\Models\Doctor;
+use App\Models\Contact;
+use App\Models\LabOrder;
+use App\Models\MediCart;
+//use Illuminate\Support\Facades\Notification;
+use App\Models\MediOrder;
+use App\Models\Appointment;
+use Illuminate\Http\Request;
+use App\Models\AppointmentHistory;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\SendEmailNotification;
 
 
 class AdminController extends Controller
@@ -291,7 +292,7 @@ public function showHistory(Request $request)
     {
         return view('admin.pharmachy.show-order',
             [
-                'medi'=>MediOrder::orderByDesc('created_at')->get()
+                'medi'=>MediCart::orderByDesc('created_at')->get()
             ]);
     }
 

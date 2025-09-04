@@ -1,67 +1,117 @@
 @extends('user.master')
-@section('title')
-    Medicine Details
-@endsection
+
+@section('title', 'Medicine Details')
 
 @section('content')
-    @if(session()->has('message'))
-        <div class="alert alert-success">
-            <button data-dismiss="alert" type="button" class="close">&times;</button>
-            {{session()->get('message')}}
+
+    {{-- Success Message --}}
+    @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show mt-3 text-center" role="alert">
+            {{ session()->get('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
 
-    <section class="doctor-details">
-        <div class="row mt-2">
-            <div class="col-md-10 offset-md-1">
-                <h4 class="text-center my-2" style="font-size: 30px;font-weight: 500;color: #00D9A5;">Medicine Details</h4>
-                <div class="row justify-content-center"> <!-- Center-align the inner row content -->
-                    <div class="col-md-4">
-                        <img src="{{ asset($data->image) }}" alt="Medicine Image" height="300px" width="300px">
+   <section class="medicine-details my-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow rounded">
+                    <div class="row g-0">
+                        {{-- Medicine Image --}}
+                        <div class="col-md-5 text-center p-3">
+                            <img src="{{ asset($data->image) }}" alt="Medicine Image" class="img-fluid rounded"
+                                style="max-height: 300px; object-fit: contain;">
+                        </div>
+
+                        {{-- Medicine Info --}}
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h2 class="fw-bold">{{ $data->name }}</h2>
+
+                                <h4 class="text fw-bold">
+                                    Price - <small class="text-decoration-line-through text-muted">
+                                        {{ number_format($data->price + 200, 2) }} MMK
+                                    </small>
+                                </h4>
+
+                                <p><strong>Code:</strong> <span class="fs-4">{{ $data->code }}</span></p>
+
+                                {{-- Quantity Selector & Total Price --}}
+                                @if ($data->quantity > 0)
+                                    <form action="{{ route('add-medicice', $data->id) }}" method="POST"
+                                        id="add-to-cart-form">
+                                        @csrf
+                                        <div class="d-flex align-items-center mb-3">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm me-2"
+                                                id="decrease">-</button>
+                                            <input type="number" name="qty" id="qtyInput" value="1" min="1"
+                                                max="{{ $data->quantity }}" class="form-control text-center w-25">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm ms-2"
+                                                id="increase">+</button>
+                                        </div>
+
+                                        <h5>Total: <span id="totalPrice"
+                                                class="fw-bold text-success">{{ number_format($data->price, 2) }}</span>
+                                            MMK
+                                        </h5>
+
+                                        <button type="submit" class="btn btn-warning text-white fw-bold px-4 mt-3">
+                                            <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                                        </button>
+                                    </form>
+                                @else
+                                    <button class="btn btn-secondary px-4 fw-bold" disabled>
+                                        <i class="bi bi-cart-dash me-1"></i> Out of Stock
+                                    </button>
+                                @endif
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-8 mt-4">
-                        <h3>Name: {{ $data->name }}</h3>
-                        <h4 style="color: #00D9A5">Vendor: {{ $data->vendor }}</h4>
-                        <h5 class="my-3">Unit Price: {{ $data->price }}</h5>
-                        <h5>Code: {{ $data->code }}</h5>
-                        <div class="my-2"><h3>Quantity: {{ $data->quantity }}/=</h3></div>
-                        <form action="{{ route('add-medicice', $data->id) }}" method="POST" id="add-to-cart-form">
-                            @csrf
-                            <input type="submit" class="btn btn-primary" style="background-color: cornflowerblue; margin-top: 10px;" value="Add to Cart">
-                        </form>
+
+                    {{-- Description --}}
+                    <div class="card-footer bg-white">
+                        <h4 class="fw-bold mb-3">Description</h4>
+                        <p class="fs-6 text-muted" style="line-height: 1.7;">
+                            {{ $data->description }}
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const price = {{ $data->price }};
+            const qtyInput = document.getElementById("qtyInput");
+            const totalPrice = document.getElementById("totalPrice");
+            const increase = document.getElementById("increase");
+            const decrease = document.getElementById("decrease");
 
-        <div class="row mt-5">
-            <div class="col-md-10 offset-md-1">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p style="color: #0b2e13;line-height: 36px;word-spacing: 2px; font-size: 22px;font-family: Roboto;margin-bottom: 10px;">{{$data->description}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            function updateTotal() {
+                let qty = parseInt(qtyInput.value);
+                if (isNaN(qty) || qty < 1) qty = 1;
+                if (qty > {{ $data->quantity }}) qty = {{ $data->quantity }};
+                qtyInput.value = qty;
+                totalPrice.textContent = (qty * price).toFixed(2);
+            }
 
-
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const doctorDropdown = document.getElementById("doctorDropdown");
-                const feeInput = document.getElementById("feeInput");
-                const doctorIdInput = document.getElementById("doctorIdInput");
-
-                doctorDropdown.addEventListener("change", function () {
-                    const selectedOption = doctorDropdown.options[doctorDropdown.selectedIndex];
-                    const selectedFee = selectedOption.getAttribute("data-fee");
-                    const selectedDoctorId = selectedOption.value;
-
-                    feeInput.value = selectedFee || ""; // Set the fee input value
-                    doctorIdInput.value = selectedDoctorId; // Set the selected doctor's ID
-                });
+            increase.addEventListener("click", function() {
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+                updateTotal();
             });
-        </script>
-    </section>
+
+            decrease.addEventListener("click", function() {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+                updateTotal();
+            });
+
+            qtyInput.addEventListener("input", updateTotal);
+
+            updateTotal();
+        });
+    </script>
+
 @endsection

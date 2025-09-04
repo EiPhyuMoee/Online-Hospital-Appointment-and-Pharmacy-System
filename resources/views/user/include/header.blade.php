@@ -34,7 +34,7 @@
                             <li><a class="dropdown-item" href="{{ route('all-medicine') }}">Pharmacy</a></li>
                         </ul>
                     </li> --}}
-                     <li class="nav-item {{ request()->routeIs('all-medicine') ? 'active' : '' }}">
+                    <li class="nav-item {{ request()->routeIs('all-medicine') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('all-medicine') }}">Pharmacy</a>
                     </li>
                     <li class="nav-item {{ request()->routeIs('contact.create') ? 'active' : '' }}">
@@ -44,11 +44,16 @@
                     @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('myappointment') }}"
-                                style="background-color: #00D9A5; color: white; border-radius: 10px;">
+                                style="background-color: #00D9A5; color: white; border-radius: 10px; margin-right: 10px;">
                                 Appointments
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('show-Medi-order') }}"
+                                style="background-color: #00D9A5; color: white; border-radius: 10px;">
+                                My Order
+                            </a>
+                        </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('foodpage') }}"
                                 style="background-color: #00D9A5; color: white; margin-left: 7px; margin-right: 10px; border-radius: 10px;">
