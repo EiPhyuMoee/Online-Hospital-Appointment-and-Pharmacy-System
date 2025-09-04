@@ -33,10 +33,10 @@
                                 <label class="form-label">Title</label>
                                 <input type="text" name="title" class="form-control" maxlength="50">
                             </div>
-                           <div class="col-12">
+                           {{-- <div class="col-12">
                                <label class="form-label">Slug</label>
                                <input type="text" name="slug" class="form-control" maxlength="50">
-                           </div>
+                           </div> --}}
                             <div class="col-12">
                                 <label class="form-label">Image</label>
                                 <input type="file" name="image" class="form-control">

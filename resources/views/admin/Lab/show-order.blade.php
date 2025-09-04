@@ -50,7 +50,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{route('print-order',$order->id)}}" class="btn btn-secondary">Print PDF</a>
+                                <a href="{{route('printOrder',$order->id)}}" class="btn btn-secondary">Print PDF</a>
                             </td>
 
                         </tr>

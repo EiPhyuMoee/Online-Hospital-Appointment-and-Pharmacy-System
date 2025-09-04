@@ -44,15 +44,16 @@ class BlogController extends Controller
         $request->validate([
             'category'=> 'required',
             'title'=>'required|string|min:5|max:50',
-            'image'=>'required',
-            'description'=>'required|string|min:10|max:500',
+            'image'=>'required|image',
+            'description'=>'required|string',
             'blog_type'=>'required',
             'date'=>'required|date'
         ]);
-        Blog::saveBlog($request);
-        return back();
-    }
 
+        Blog::saveBlog($request);
+
+        return back()->with('message', 'Blog added successfully!');
+    }
     /**
      * Display the specified resource.
      */

@@ -282,9 +282,9 @@ public function showHistory(Request $request)
 
     public function printOrder($id)
     {
-        $data =LabOrder::find($id);
-        $pdf = PDF::loadView('admin.lab.pdf',compact('data'));
-        return $pdf->download('lab_test_details.pdf');
+        $data = MediCart::find($id);
+        $pdf = PDF::loadView('admin.pharmachy.pdf',compact('data'));
+        return $pdf->download('Receipt.pdf');
     }
 
 

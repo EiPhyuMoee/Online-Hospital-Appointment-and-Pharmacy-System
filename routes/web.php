@@ -113,7 +113,7 @@ Route::get('/approvequery/{id}',[AdminController::class,'approvequery'])->name('
 //Lab Test
 Route::get('/lab-order',[AdminController::class,'labOrder'])->name('lab-order');
 Route::get('/update-laborder/{id}',[AdminController::class,'updateLabOrder'])->name('update-laborder');
-Route::get('/print-order/{id}',[AdminController::class,'printOrder'])->name('print-order');
+Route::get('/print-order/{id}',[AdminController::class,'printOrder'])->name('printOrder');
 
 
 //Medi Order

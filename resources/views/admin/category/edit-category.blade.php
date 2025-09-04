@@ -7,8 +7,9 @@
                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Update Category</h3></div>
                     <div class="d-flex justify-content-end" style="margin-top: -60px;"><a href="{{route('category.create')}}" class="btn btn-primary">Add Category</a></div>
                     <div class="card-body">
-                        <form action="{{route('category.update',$category->id)}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('category.update',$category->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
 
                             <div class="col-12">
                                 <label class="form-label">Category Name</label>
