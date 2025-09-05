@@ -77,12 +77,25 @@ class HomeController extends Controller
         }
     }
 
-  public function appointment(Request $request)
+public function appointment(Request $request)
 {
     $request->validate([
         'name' => 'required',
         'email' => 'required|email',
-        'date' => 'required|date|after_or_equal:today',
+        'date' => [
+            'required',
+            'date',
+            'after_or_equal:today',
+            function($attribute, $value, $fail) use ($request) {
+                $doctor = Doctor::find($request->doctor_id);
+                if ($doctor) {
+                    $day = date('l', strtotime($value)); // Monday, Tuesday...
+                    if ($day !== $doctor->day) {
+                        $fail('Selected date must be on ' . $doctor->day);
+                    }
+                }
+            }
+        ],
         'phone' => 'required',
         'doctor_id' => 'required|exists:doctors,id',
     ]);

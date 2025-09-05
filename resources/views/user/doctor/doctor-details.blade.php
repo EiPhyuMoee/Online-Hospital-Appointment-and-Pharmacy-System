@@ -83,16 +83,14 @@
                             </div>
                             <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
                                 <input type="date" class="form-control" name="date" id="appointmentDate"
-                                    min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime('+1 month')) }}">
+                                    min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                                    max="{{ date('Y-m-d', strtotime('+1 month')) }}">
                                 <span class="text-danger">
                                     @error('date')
                                         {{ $message }}
                                     @enderror
                                 </span>
-                                <span class="text-warning" id="dateWarning" style="display: none;">Please select a future
-                                    date within 1 month.</span>
                             </div>
-
 
                             <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                                 <select name="doctor" id="doctorDropdown" class="custom-select">
