@@ -28,7 +28,7 @@
                     @foreach ($appoint as $appoints)
                         <tr>
                             <td>{{ $appoints->doctor }}</td>
-                            <td>{{ $appoints->date }}</td>
+                            <td>{{ \Carbon\Carbon::parse($appoints->date)->format('d-m-Y') }}</td>
                             <td style="width: 28.537265% !important;">{{ $appoints->message }}</td>
                             <td>{{ $appoints->fee }}</td>
                             <td>{{ $appoints->status }}</td>
