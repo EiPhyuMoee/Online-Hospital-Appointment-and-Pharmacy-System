@@ -65,7 +65,7 @@
                         <div class="row mt-5 ">
                             <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
                                 <input type="text" class="form-control" placeholder="Full name"
-                                    name="name"value="{{ old('name') }}">
+                                    name="name"value="{{ old('name') }}" maxlength="25">
                                 <span class="text-danger">
                                     @error('name')
                                         {{ $message }}
@@ -73,7 +73,7 @@
                                 </span>
                             </div>
                             <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                                <input type="text" name="email" class="form-control"
+                                <input type="email" id="email" name="email" class="form-control"
                                     placeholder="Email address.."value="{{ old('email') }}">
                                 <span class="text-danger">
                                     @error('email')
@@ -82,14 +82,15 @@
                                 </span>
                             </div>
                             <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                                <input type="date" class="form-control" name="date" id="appointmentDate">
+                                <input type="date" class="form-control" name="date" id="appointmentDate"
+                                    min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime('+1 month')) }}">
                                 <span class="text-danger">
                                     @error('date')
                                         {{ $message }}
                                     @enderror
                                 </span>
                                 <span class="text-warning" id="dateWarning" style="display: none;">Please select a future
-                                    date.</span>
+                                    date within 1 month.</span>
                             </div>
 
 
@@ -122,7 +123,8 @@
 
 
                             <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                                <input type="text" name="phone" class="form-control" placeholder="Number.."
+                                <input type="text" name="phone" class="form-control" placeholder="Phone No."
+                                    minlength="9" maxlength="11" pattern="[0-9]{9,11}" inputmode="numeric"
                                     value="{{ old('phone') }}">
                                 <span class="text-danger">
                                     @error('phone')

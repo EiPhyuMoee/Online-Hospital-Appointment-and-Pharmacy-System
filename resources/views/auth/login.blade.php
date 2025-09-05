@@ -2,7 +2,7 @@
     <div class="min-h-screen flex items-center justify-center px-4"
         style="background-image: url('{{ asset('assets/img/login-bg.jpg') }}'); background-size: cover; background-position: center;">
         <div
-            class="bg-white bg-opacity-20 backdrop-blur-md rounded-xl shadow-lg max-w-md w-full p-8 text-white flex flex-col justify-center items-center">
+            class="bg-white bg-opacity-20 backdrop-blur-md rounded-xl shadow-lg max-w-md w-full p-8 text-black flex flex-col justify-center items-center">
             <h2 class="text-3xl font-bold mb-6 text-center">Login</h2>
 
             <form method="POST" action="{{ route('login') }}" class="w-full">
@@ -11,8 +11,8 @@
                 <div class="mb-4 relative">
                     <x-input id="email" type="email" name="email" :value="old('email')" required autofocus
                         placeholder="Username"
-                        class="w-full rounded-full pl-10 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
-                    <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-white opacity-70">
+                        class="w-full rounded-full pl-10 pr-4 py-2 bg-white bg-opacity-20 placeholder-black placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
+                    <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-black opacity-70">
                         <!-- User icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
@@ -28,8 +28,8 @@
 
                 <div class="mb-4 relative">
                     <x-input id="password" type="password" name="password" required placeholder="Password"
-                        class="w-full rounded-full pl-10 pr-4 py-2 bg-white bg-opacity-20 placeholder-white placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
-                    <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-white opacity-70">
+                        class="w-full rounded-full pl-10 pr-4 py-2 bg-white bg-opacity-20 placeholder-black placeholder-opacity-75 focus:outline-none focus:ring-2 focus:ring-purple-400" />
+                    <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-black opacity-70">
                         <!-- Lock icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
@@ -56,7 +56,7 @@
                 </div>
 
                 <x-button
-                    class="w-full flex justify-center items-center rounded-full bg-transparent border border-white text-white
+                    class="w-full flex justify-center items-center rounded-full bg-transparent border border-white text-black
                     hover:bg-white hover:text-purple-700
                     focus:outline-none focus:ring-0
                     active:bg-white active:text-purple-700 transition">
