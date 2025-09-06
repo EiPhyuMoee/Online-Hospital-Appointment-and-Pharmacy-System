@@ -60,7 +60,7 @@
                                 <input type="date" name="date" class="form-control">
                             </div>
 
-                            <div class="col-12 d-flex mt-2">
+                            {{-- <div class="col-12 d-flex mt-2">
                                 <p class="ml-2 mr-2">Status</p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="1" {{$category->status == '1' ? 'checked':null}}>
@@ -70,7 +70,7 @@
                                     <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="0" {{$category->status == '0' ? 'checked':null}}>
                                     <label class="form-check-label" for="inlineRadio2">Inactive</label>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                             <div class="mt-4 mb-0">
