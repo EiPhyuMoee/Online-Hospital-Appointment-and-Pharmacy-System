@@ -83,7 +83,7 @@
                             </div>
                             <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
                                 <input type="date" class="form-control" name="date" id="appointmentDate"
-                                    min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                                    min="{{ date('Y-m-d', strtotime('+0 day')) }}"
                                     max="{{ date('Y-m-d', strtotime('+1 month')) }}">
                                 <span class="text-danger">
                                     @error('date')

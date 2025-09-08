@@ -344,7 +344,7 @@ public function appointment(Request $request)
     }
     public function printPresc($id)
     {
-        $data =Pres::find($id);
+        $data =MediCart::find($id);
         $pdf = PDF::loadView('user.prescrib.pdf',compact('data'));
         return $pdf->download('prescription.pdf');
     }

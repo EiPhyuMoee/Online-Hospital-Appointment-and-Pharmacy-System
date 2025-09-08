@@ -300,6 +300,17 @@ public function showHistory(Request $request)
     {
         $order = MediCart::find($id);
 
+        $order->payment_status='Cash On Deli';
+        $order->delivery_status='Processing';
+
+        $order->save();
+        return redirect()->back();
+    }
+
+         public function doneMediOrder($id)
+    {
+        $order = MediCart::find($id);
+
         $order->payment_status='Paid';
         $order->delivery_status='Done';
 
@@ -331,7 +342,7 @@ public function showHistory(Request $request)
 
     public function printMediOrder($id)
     {
-        $data =MediOrder::find($id);
+        $data =MediCart::find($id);
         $pdf = PDF::loadView('admin.pharmachy.pdf',compact('data'));
         return $pdf->download('medicines.pdf');
     }

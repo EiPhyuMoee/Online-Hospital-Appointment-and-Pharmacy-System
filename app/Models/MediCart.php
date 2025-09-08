@@ -27,7 +27,7 @@ class MediCart extends Model
 
     $cart->quantity = $qty;
     $cart->price = $unitPrice;
-    $cart->total_price = $qty * $unitPrice; 
+    $cart->total_price = $qty * $unitPrice;
     $cart->description = $test->description;
     $cart->date = $test->date;
 

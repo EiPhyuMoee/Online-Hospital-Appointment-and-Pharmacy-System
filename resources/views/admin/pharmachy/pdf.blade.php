@@ -38,7 +38,7 @@
 
 
 
-<h1 class="text-center">Medicine Details</h1>
+<h1 class="text-center">Receipt</h1>
 <table class="centered-table">
     <tr>
         <th>Customer Name</th>
@@ -46,11 +46,11 @@
     </tr>
     <tr>
         <th>Date</th>
-        <td>{{$data->date}}</td>
+        <td>{{$data->created_at}}</td>
     </tr>
     <tr>
-        <th>Invoice Id</th>
-        <td>{{$data->m_id}}</td>
+        <th>Phone</th>
+        <td>{{$data->phone}}</td>
     </tr>
     <tr>
         <th>Medicine Name</th>
@@ -58,7 +58,7 @@
     </tr>
     <tr>
         <th>Medicine Price</th>
-        <td>{{$data->price}}</td>
+        <td>{{$data->total_price}}</td>
     </tr>
     <tr>
         <th>Payment Status</th>
@@ -67,6 +67,6 @@
 </table>
 
 
-<footer>Preapered by MediCare</footer>
+<footer>Preapered by Safe-Nest</footer>
 </body>
 </html>
