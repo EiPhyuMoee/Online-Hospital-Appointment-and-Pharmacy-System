@@ -16,6 +16,7 @@
                 <thead>
                     <tr>
                         <th>Doctor Name</th>
+                        <th>Paient Name</th>
                         <th>Date</th>
                         <th style="width: 28.537265% !important;">Message</th>
                         <th>Consultant Fee</th>
@@ -28,6 +29,7 @@
                     @foreach ($appoint as $appoints)
                         <tr>
                             <td>{{ $appoints->doctor }}</td>
+                            <td>{{ $appoints->name }}</td>
                             <td>{{ \Carbon\Carbon::parse($appoints->date)->format('d-m-Y') }}</td>
                             <td style="width: 28.537265% !important;">{{ $appoints->message }}</td>
                             <td>{{ $appoints->fee }}</td>

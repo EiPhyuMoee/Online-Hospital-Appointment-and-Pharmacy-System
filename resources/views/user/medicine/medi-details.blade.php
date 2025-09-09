@@ -35,7 +35,7 @@
                                         </small>
                                     </h4>
 
-                                    <p><strong>Quantity:</strong> <span class="fs-4">{{ $data->quantity }}</span></p>
+                                    <p><strong>Pcs:</strong> <span class="fs-4">{{ $data->pcs }}</span></p>
                                     <p><strong>Code:</strong> <span class="fs-4">{{ $data->code }}</span></p>
 
                                     @if ($data->quantity > 0)
@@ -47,8 +47,8 @@
                                                     id="decrease">-</button>
 
                                                 <input type="number" name="qty" id="qtyInput" value="1"
-                                                    min="1" max="{{ min($data->quantity, 5) }}"
-                                                    class="form-control text-center w-25">
+                                                    min="1" max="{{ $data->quantity }}"
+                                                    class="form-control text-center w-25" />
 
                                                 <input type="hidden" name="price_per_unit" value="{{ $data->price }}">
 

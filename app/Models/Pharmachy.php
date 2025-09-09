@@ -15,6 +15,7 @@ class Pharmachy extends Model
         self::$med->code = $request->code;
         self::$med->price = $request->price;
         self::$med->quantity = $request->quantity;
+        self::$med->pcs = $request->pcs;
         self::$med->description = $request->description;
         // self::$med->vendor = $request->vendor;
         self::$med->date = $request->date;
@@ -40,6 +41,7 @@ class Pharmachy extends Model
         self::$med->name = $request->name;
         self::$med->code = $request->code;
         self::$med->price = $request->price;
+        self::$med->pcs = $request->pcs;
         self::$med->quantity = $request->quantity;
         self::$med->description = $request->description;
         // self::$med->vendor = $request->vendor;

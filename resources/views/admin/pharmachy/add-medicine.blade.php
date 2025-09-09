@@ -71,8 +71,22 @@
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" id="inputQuantity" name="quantity" type="text"
-                                            placeholder="Quantity" maxlength="150" value="{{ old('quantity') }}" />
+                                        <input class="form-control" id="inputQuantity" name="pcs" type="text"
+                                            placeholder="Pcs" maxlength="150" value="{{ old('pcs') }}" />
+                                        <label for="pcs">Pcs</label>
+                                        <span class="text-danger">
+                                            @error('pcs')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputQuantity" name="quantity" type="number"
+                                            placeholder="Quantity" max="10" value="{{ old('quantity') }}" />
                                         <label for="quantity">Quantity</label>
                                         <span class="text-danger">
                                             @error('quantity')
@@ -82,6 +96,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="row mb-3">
                                 <div class="col-md-12">

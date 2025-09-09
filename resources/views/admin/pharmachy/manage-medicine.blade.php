@@ -22,6 +22,7 @@
                             <th style="width: 150px;">Medicine Name</th>
                             <th style="width: 100px;">Medicine Code</th>
                             <th style="width: 80px;">Price</th>
+                            <th style="width: 80px;">Pcs</th>
                             <th style="width: 80px;">Quantity</th>
                             <th style="width: 200px;">Description</th>
                             <th style="width: 150px;">Exp Date</th>
@@ -35,6 +36,7 @@
                                 <td>{{ $food->name }}</td>
                                 <td>{{ $food->code }}</td>
                                 <td>{{ $food->price }}</td>
+                                <td>{{ $food->pcs }}</td>
                                 <td>{{ $food->quantity }}</td>
                                 <td>{{ $food->description }}</td>
                                 <td style="width: 100px;">{{ \Carbon\Carbon::parse($food->date)->format('d-m-Y') }}</td>
