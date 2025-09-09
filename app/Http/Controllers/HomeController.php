@@ -462,18 +462,48 @@ public function appointment(Request $request)
         return view('user.medicine.medi-details',compact('data'));
     }
 
-
     public function addMedi(Request $request, $id)
     {
-        if (Auth::check()) {
-            $userId = Auth::user(); // Get the authenticated user's ID
-            $test = Pharmachy::find($id);
-            MediCart::saveMed($request, $id, $userId, $test);
-            return back()->with('message', 'Medicine added to cart successfully.');
-        } else {
+        if (!Auth::check()) {
             return redirect()->route('login')->with('message', 'Please log in to add products to cart.');
         }
+
+        $user = Auth::user();
+        $medicine = Pharmachy::findOrFail($id);
+
+        $quantityRequested = (int) $request->input('qty', 1);
+
+        $existingCart = MediCart::where('user_id', $user->id)
+            ->where('m_id', $id)
+            ->first();
+
+        $alreadyInCart = $existingCart ? $existingCart->quantity : 0;
+        $availableQty = $medicine->quantity - $alreadyInCart;
+
+        if ($availableQty <= 0) {
+            return back()->with('error', $medicine->name . ' is Out of Stock');
+        }
+
+        $qtyToAdd = min($quantityRequested, $availableQty);
+
+        if ($existingCart) {
+            $existingCart->quantity += $qtyToAdd;
+            $existingCart->save();
+        } else {
+            $request->merge(['qty' => $qtyToAdd]);
+            MediCart::saveMed($request, $id, $user, $medicine);
+        }
+
+        // Notify user if partial quantity added
+        if ($qtyToAdd < $quantityRequested) {
+            return back()->with('error', 'Only ' . $qtyToAdd . ' ' . $medicine->name . '(s) added to cart due to limited stock.');
+        }
+
+        return back()->with('message', $medicine->name . ' added to cart successfully.');
     }
+
+
+
 
     public function showCartMed()
     {

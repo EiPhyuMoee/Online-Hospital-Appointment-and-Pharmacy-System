@@ -20,6 +20,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
+                            <th>Order Date</th>
                             <th>Test Name</th>
                             <th>Price </th>
                             <th>Total Price </th>
@@ -35,6 +36,7 @@
                         @foreach ($dataa as $order)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $order->created_at }}</td>
                                 <td>{{ $order->test_name }}</td>
                                 <td>{{ $order->price }}</td>
                                 <td>{{ $order->total_price }}</td>

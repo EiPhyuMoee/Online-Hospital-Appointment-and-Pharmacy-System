@@ -12,6 +12,14 @@
         </div>
     @endif
 
+
+    {{-- Error Message --}}
+    @if (session('error'))
+        <div class="alert alert-danger alert-dismissible fade show mt-3 text-center" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <section class="medicine-details my-5">
         <div class="container">
             <div class="row justify-content-center">

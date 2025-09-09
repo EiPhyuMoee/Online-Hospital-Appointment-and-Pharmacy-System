@@ -20,6 +20,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
+                            <th>Order Date</th>
                             <th>Medicine Name</th>
                             <th>Price </th>
                             <th>Quantity</th>
@@ -37,6 +38,7 @@
                         @foreach ($dataa as $order)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $order->updated_at->format('d-m-Y H:i:s') }}</td>
                                 <td>{{ $order->m_name }}</td>
                                 <td>{{ $order->price }}</td>
                                 <td>{{ $order->quantity }}</td>
