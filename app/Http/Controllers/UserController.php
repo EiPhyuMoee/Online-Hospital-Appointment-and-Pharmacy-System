@@ -22,18 +22,14 @@ class UserController extends Controller
     {
         return view('admin.user.add-user');
     }
-
+    
 
     public function store(Request $request)
     {
-//        dd($request);
-//        dd($request->all());
-            User::saveUser($request);
+        $result = User::saveUser($request);
 
-            return back()->with('message', 'Added Successfully');
-
+        return back()->with('message', $result['message']);
     }
-
 
     public function show(string $id)
     {
@@ -48,7 +44,7 @@ class UserController extends Controller
         $userRoles = [
             0=> 'User',
             1 => 'Super Admin',
-            2 => 'Doctor',
+            // 2 => 'Doctor',
             // 3 => 'Food',
             // 4 => 'Receptionist',
             // 5 => 'Lab and Medicines',

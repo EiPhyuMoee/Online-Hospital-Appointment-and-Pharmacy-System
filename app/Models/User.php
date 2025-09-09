@@ -66,31 +66,49 @@ class User extends Authenticatable
 
     private static $user;
 
-    public static function saveUser($request){
-        self::$user = new User();
-        self::$user->usertype = $request->usertype;
-        self::$user->doctor_id = $request->doctor_id;
-//        self::$user->user_type = $request->user_type;
-        self::$user->name = $request->name;
-        self::$user->email = $request->email;
-        self::$user->phone = $request->phone;
-        self::$user->address = $request->address;
-        self::$user->password = bcrypt($request->password);
-        self::$user->save();
+   public static function saveUser($request)
+{
+    // Check if email already exists
+    if (User::where('email', $request->email)->exists()) {
+        return ['status' => 'error', 'message' => 'Email already exists!'];
     }
 
-    public static function updateUser($request,$id)
-    {
-        self::$user = new User();
-        self::$user->usertype = $request->usertype;
-        self::$user->doctor_id = $request->doctor_id;
-//        self::$user->user_type = $request->user_type;
-        self::$user->name = $request->name;
-        self::$user->email = $request->email;
-        self::$user->phone = $request->phone;
-        self::$user->address = $request->address;
-        self::$user->password = bcrypt($request->password);
-        self::$user->save();
+    $user = new User();
+    $user->usertype = $request->usertype;
+    $user->doctor_id = $request->doctor_id;
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->phone = $request->phone;
+    $user->address = $request->address;
+    $user->password = bcrypt($request->password);
+    $user->save();
+
+    return ['status' => 'success', 'message' => 'User created successfully!'];
+}
+
+public static function updateUser($request, $id)
+{
+    $user = User::findOrFail($id);
+
+    if ($user->email != $request->email && User::where('email', $request->email)->exists()) {
+        return ['status' => 'error', 'message' => 'Email already exists!'];
     }
+
+    $user->usertype = $request->usertype;
+    $user->doctor_id = $request->doctor_id;
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->phone = $request->phone;
+    $user->address = $request->address;
+
+    if (!empty($request->password)) {
+        $user->password = bcrypt($request->password);
+    }
+
+    $user->save();
+
+    return ['status' => 'success', 'message' => 'User updated successfully!'];
+}
+
 
 }

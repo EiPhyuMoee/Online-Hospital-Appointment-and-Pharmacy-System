@@ -28,7 +28,6 @@
                                     <option value="">Select User Role</option>
                                     <option value="1">Super Admin</option>
                                     <option value="0">User</option>
-                                    <option value="2">Doctor</option>
                                     {{-- <option value="3">Food</option>
                                     <option value="4">Receptionist</option>
                                     <option value="5">Lab and Medicine</option> --}}

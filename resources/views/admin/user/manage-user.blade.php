@@ -46,7 +46,7 @@
                                 </td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone }}</td>
-                                <td>{{ $user->created_at }}</td>
+                                <td>{{ $user->created_at->format('d-m-Y') }}</td>
                                 <td class="d-flex">
                                     <div class="btn-group">
                                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>

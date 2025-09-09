@@ -21,17 +21,19 @@
                         <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <div class="col-12">
-                                <label class="form-label">Role</label>
-                                <select name="usertype" class="form-control" required>
-                                    <option value="">Select Role</option>
-                                    @foreach ($userRoles as $role)
-                                        <option value="{{ $role }}"
-                                            {{ old('userRoles', $user->usertype ?? '') == $role ? 'selected' : '' }}>
+                            <div class="col-12 mb-3">
+                                <label class="form-label">User Type</label>
+                                <select name="usertype" id="usertype" class="form-control" required>
+                                    <option value="">Select User Role</option>
+                                    @foreach ($userRoles as $key => $role)
+                                        <option value="{{ $key }}"
+                                            {{ old('usertype', $user->usertype ?? '') == $key ? 'selected' : '' }}>
                                             {{ $role }}
                                         </option>
                                     @endforeach
                                 </select>
+                                <div class="alert alert-danger usertype-error" style="display: none;">User Type is required.
+                                </div>
                             </div>
 
 

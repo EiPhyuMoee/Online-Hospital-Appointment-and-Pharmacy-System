@@ -10,17 +10,6 @@
                     Dashboard
                 </a>
 
-                <!-- Appointment History -->
-                @auth
-                    @if (Auth::user()->usertype == 2 || Auth::user()->usertype == 1)
-                        <div class="sb-sidenav-menu-heading">History</div>
-                        <a class="nav-link" href="{{ route('showhistory') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
-                            Appointment History
-                        </a>
-                    @endif
-                @endauth
-
                 <!-- Users -->
                 @auth
                     @if (Auth::user()->usertype == 1)
@@ -45,6 +34,23 @@
                         </a>
                     @endif
                 @endauth
+                @auth
+                    @if (Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">Blog</div>
+                        <a class="nav-link" href="{{ route('category.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-folder-plus"></i></div>
+                            Add Category
+                        </a>
+                        <a class="nav-link" href="{{ route('blog.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-pen-nib"></i></div>
+                            Add Blog
+                        </a>
+                        <a class="nav-link" href="{{ route('blog.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
+                            Manage Blog
+                        </a>
+                    @endif
+                @endauth
 
                 <!-- Appointments & Queries -->
                 @auth
@@ -54,6 +60,16 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
                             Manage Appointments
                         </a>
+                           <!-- Appointment History -->
+                @auth
+                    @if (Auth::user()->usertype == 2 || Auth::user()->usertype == 1)
+                        <div class="sb-sidenav-menu-heading">History</div>
+                        <a class="nav-link" href="{{ route('showhistory') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
+                            Appointment History
+                        </a>
+                    @endif
+                @endauth
 
                         <div class="sb-sidenav-menu-heading">Contact</div>
                         <a class="nav-link" href="{{ route('contact.index') }}">
@@ -85,23 +101,7 @@
                 @endauth --}}
 
                 <!-- Blog -->
-                @auth
-                    @if (Auth::user()->usertype == 1)
-                        <div class="sb-sidenav-menu-heading">Blog</div>
-                        <a class="nav-link" href="{{ route('category.create') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-folder-plus"></i></div>
-                            Add Category
-                        </a>
-                        <a class="nav-link" href="{{ route('blog.create') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-pen-nib"></i></div>
-                            Add Blog
-                        </a>
-                        <a class="nav-link" href="{{ route('blog.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
-                            Manage Blog
-                        </a>
-                    @endif
-                @endauth
+
 
                 <!-- Pharmacy & Lab -->
                 @auth
