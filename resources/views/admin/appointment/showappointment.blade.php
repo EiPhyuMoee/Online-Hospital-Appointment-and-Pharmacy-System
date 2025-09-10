@@ -20,7 +20,7 @@
                             <th>Email</th>
                             <th>Phone No.</th>
                             <th>Appointment Date</th>
-                             <th>Doctor Name </th>
+                            <th>Doctor Name </th>
                             <th>Messagee</th>
                             <th>fee</th>
                             <th>Status</th>
@@ -35,7 +35,7 @@
                                     <td>{{ $appoint->name }}</td>
                                     <td>{{ $appoint->email }}</td>
                                     <td>{{ $appoint->phone }}</td>
-                                     <td>{{$appoint->date }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($appoint->date)->format('d-m-Y') }}</td>
                                     <td>{{ $appoint->doctor }}</td>
                                     <td>{{ $appoint->message }}</td>
                                     <td>{{ $appoint->fee }}</td>

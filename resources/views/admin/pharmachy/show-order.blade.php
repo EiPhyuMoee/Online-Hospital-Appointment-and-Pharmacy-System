@@ -25,6 +25,7 @@
                             <th>Quantity</th>
                             <th>Total Price </th>
                             <th>Customer Name</th>
+                            <th>Address</th>
                             <th>Email</th>
                             <th>Phone No.</th>
                             <th>Payment Status</th>
@@ -44,6 +45,7 @@
                                 <td>{{ $order->quantity }}</td>
                                 <td>{{ $order->total_price }}</td>
                                 <td>{{ $order->u_name }}</td>
+                                <td>{{ $order->user->address }}</td>
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->phone }}</td>
                                 <td>{{ $order->payment_status }}</td>
