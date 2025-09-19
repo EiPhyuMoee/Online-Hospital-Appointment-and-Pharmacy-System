@@ -172,8 +172,6 @@ INSERT INTO `doctors` (`id`, `name`, `phone`, `speciality`, `email`, `time`, `da
 (4, 'Dr. Pyei Phyo', '09772355436', 'Neurologist (ဦးနှောက်နှင့်အာရုံကြောအထူးကု)', 'pyeiphyu@gmail.com', '10:00 AM to 03:00PM', 'Thursday', '35000', 'Doctor', 'admin-assets/assets/doctor-image/2053357323.png', '2025-07-30 08:45:42', '2025-08-04 10:18:22'),
 (5, 'Dr.  Aung Khaing Oo', '09772355437', 'Cardiologist (နှလုံးအထူးကု)', 'aungkhaingoo@gmail.com', '10:00 AM to 03:00PM', 'Friday', '25000', 'Doctor', 'admin-assets/assets/doctor-image/390954965.png', '2025-07-30 09:22:42', '2025-08-04 09:36:14'),
 (6, 'Dr. Pa Pa', '09772355434', 'Dermatologist (အရေပြားအထူးကု)', 'papa@gmail.com', '10:00 AM to 03:00PM', 'Sunday', '35000', 'Doctor', 'admin-assets/assets/doctor-image/520357279.png', '2025-08-04 10:00:27', '2025-09-06 02:24:54'),
-(12, 'Dr. Pa Pa', '09772355434', 'Dermatologist (အရေပြားအထူးကု)', 'papa@gmail.com', '10:00 AM to 03:00PM', 'Sunday', '35000', 'Doctor', 'admin-assets/assets/doctor-image/520357279.png', '2025-08-04 10:00:27', '2025-09-06 02:24:54'),
-(13, 'Dr. Pa Pa', '09772355434', 'Dermatologist (အရေပြားအထူးကု)', 'papa@gmail.com', '10:00 AM to 03:00PM', 'Sunday', '35000', 'Doctor', 'admin-assets/assets/doctor-image/520357279.png', '2025-08-04 10:00:27', '2025-09-06 02:24:54');
 
 -- --------------------------------------------------------
 
@@ -256,27 +254,27 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(3, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
-(4, '2019_08_19_000000_create_failed_jobs_table', 1),
-(5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(6, '2023_08_14_202635_create_sessions_table', 1),
-(9, '2023_08_15_175922_create_notifications_table', 4),
-(17, '2023_08_15_204354_create_contacts_table', 7),
-(19, '2023_08_16_211158_create_categories_table', 8),
-(21, '2023_08_16_204115_create_blogs_table', 9),
-(31, '2023_08_17_050210_create_orders_table', 13),
-(32, '2023_08_15_000441_create_doctors_table', 14),
-(34, '2023_08_15_023958_create_appointments_table', 15),
-(35, '2023_08_21_222218_create_appointment_histories_table', 16),
-(39, '2014_10_12_000000_create_users_table', 17),
-(41, '2023_08_24_185030_create_pres_table', 18),
-(43, '2023_08_24_204349_create_pharmachies_table', 19),
-(46, '2023_08_24_213233_create_labs_table', 20),
-(47, '2023_08_25_002119_create_lab_carts_table', 21),
-(50, '2023_08_25_010156_create_lab_orders_table', 22),
-(56, '2023_08_25_045642_create_medi_carts_table', 23),
-(58, '2023_08_25_055345_create_medi_orders_table', 24);
+(1, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(2, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2023_08_14_202635_create_sessions_table', 1),
+(6, '2023_08_15_175922_create_notifications_table', 4),
+(7, '2023_08_15_204354_create_contacts_table', 7),
+(8, '2023_08_16_211158_create_categories_table', 8),
+(9, '2023_08_16_204115_create_blogs_table', 9),
+(10, '2023_08_17_050210_create_orders_table', 13),
+(11, '2023_08_15_000441_create_doctors_table', 14),
+(12, '2023_08_15_023958_create_appointments_table', 15),
+(13, '2023_08_21_222218_create_appointment_histories_table', 16),
+(14, '2014_10_12_000000_create_users_table', 17),
+(15, '2023_08_24_185030_create_pres_table', 18),
+(16, '2023_08_24_204349_create_pharmachies_table', 19),
+(17, '2023_08_24_213233_create_labs_table', 20),
+(18, '2023_08_25_002119_create_lab_carts_table', 21),
+(19, '2023_08_25_010156_create_lab_orders_table', 22),
+(20, '2023_08_25_045642_create_medi_carts_table', 23),
+(21, '2023_08_25_055345_create_medi_orders_table', 24);
 
 -- --------------------------------------------------------
 
